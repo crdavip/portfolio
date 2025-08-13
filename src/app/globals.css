@@ -1,10 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary: #00B7E3;
-  --color-secondary: #FF6F3C;
+  --transition-all: ease 0.5s;
+  --color-primary: #00b7e3;
+  --color-secondary: #ff6f3c;
   --color-dark: #121212;
-  --color-light: #F8FAFC;
+  --color-dark-50: rgba(18, 18, 18, 0.5);
+  --color-light: #f8fafc;
+  --color-light-05: rgba(248, 250, 252, 0.05);
+  --color-light-20: rgba(248, 250, 252, 0.2);
 }
 
 @theme inline {
@@ -22,7 +26,72 @@
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
+  background-image: url("/img/bg-pattern.svg");
+  background-position: center top;
+  background-repeat: repeat-y;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+.primary-color {
+  color: var(--color-primary);
+}
+
+@layer components {
+  .header {
+    @apply w-full h-[80px] sticky top-0 shadow-xl shadow-white/2 border-b-1 border-white/15 backdrop-blur-sm;
+    background-color: var(--color-dark-50);
+  }
+
+  .header-pc {
+    @apply max-w-6xl mx-auto h-full hidden md:flex justify-between items-center;
+  }
+
+  .header-mobile {
+    @apply max-w-6xl mx-auto h-full flex md:hidden justify-center items-center;
+  }
+
+  .nav-mobile {
+    @apply flex w-full h-[50px] justify-center items-center border-t-1 border-white/15 backdrop-blur-sm sm:hidden;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-dark-50);
+  }
+
+  .nav-mobile-item {
+    @apply flex flex-col justify-center items-center text-sm font-light;
+  }
+
+  .logo-brand {
+    cursor: pointer;
+    transition: var(--transition-all);
+  }
+
+  .logo-brand:hover {
+    transform: scale(1.1);
+  }
+
+  .menu-item {
+    @apply flex items-center gap-4 font-semibold px-4 py-2 rounded-md;
+    background-color: transparent;
+    border: 0.5px solid transparent;
+    cursor: pointer;
+    transition: var(--transition-all);
+  }
+
+  .menu-item:hover {
+    background-color: var(--color-light-05);
+    border: 0.5px solid var(--color-light-20);
+    box-shadow: 0 0 5px var(--color-light-05);
+  }
+}
+
+@media all and (max-width: 640px) {
+  body {
+    background-image: url("/img/bg-pattern-mobile.svg");
+    background-position: center top;
+    background-repeat: repeat-y;
+    color: var(--foreground);
+  }
 }

@@ -1,24 +1,16 @@
 import Image from "next/image";
 
 interface Props {
-  country: string;
-  device: string;
+  lang: string;
 }
 
-export const Flags = ({ country, device }: Props) => {
+export const Flags = ({ lang }: Props) => {
   let src = "";
-  if (country === "usa") {
+  if (lang === "es") {
     src = "/img/flag-usa.svg";
   } else {
     src = "/img/flag-col.svg";
   }
 
-  let size = 0;
-  if (device === "pc") {
-    size = 20;
-  } else {
-    size = 14;
-  }
-
-  return <Image src={src} alt={country} width={size} height={size} priority />;
+  return <Image src={src} alt={lang} width={20} height={20} priority />;
 };

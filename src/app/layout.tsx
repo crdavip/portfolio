@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { brandFont } from "@/config";
-import { Header, NavbarMobile } from "@/components";
+import { Header } from "@/components";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -13,13 +13,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const lang = "es";
   return (
-    <html lang="es">
-      <body className={`${brandFont.className} antialiased`}>
-        <Header />
-        <NavbarMobile />
+    <html lang={lang}>
+      <body className={`${brandFont.className} antialiased min-h-[2000px]`}>
+        <Header lang={lang} />
         {children}
-        </body>
+      </body>
     </html>
   );
 }

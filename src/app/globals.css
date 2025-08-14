@@ -3,12 +3,18 @@
 :root {
   --transition-all: ease 0.5s;
   --color-primary: #00b7e3;
+  --color-primary-rgb: 0, 183, 227;
+  --color-primary-20: rgba(var(--color-primary-rgb), 0.2);
   --color-secondary: #ff6f3c;
   --color-dark: #121212;
-  --color-dark-50: rgba(18, 18, 18, 0.5);
+  --color-dark-rgb: 18, 18, 18;
+  --color-dark-50: rgba(var(--color-dark-rgb), 0.5);
   --color-light: #f8fafc;
-  --color-light-05: rgba(248, 250, 252, 0.05);
-  --color-light-20: rgba(248, 250, 252, 0.2);
+  --color-light-rgb: 248, 250, 252;
+  --color-light-05: rgba(var(--color-light-rgb), 0.05);
+  --color-light-20: rgba(var(--color-light-rgb), 0.2);
+  --shadow-light-05: 0 0 5px var(--color-light-05);
+  --shadow-down-50: 0 5px 50px var(--color-light-05);
 }
 
 @theme inline {
@@ -33,34 +39,48 @@ body {
   color: var(--foreground);
 }
 
-.primary-color {
+button {
+  cursor: pointer;
+}
+
+.text-primary-color {
   color: var(--color-primary);
 }
 
 @layer components {
+  h1 {
+    @apply text-4xl md:text-6xl font-bold;
+  }
+
+  h2 {
+    @apply text-2xl md:text-4xl font-semibold;
+  }
+
+  h3 {
+    @apply text-xl md:text-3xl font-semibold;
+  }
+
+  h4 {
+    @apply text-lg md:text-2xl font-semibold;
+  }
+
+  .text-button {
+    @apply font-semibold;
+    font-size: 18px;
+  }
+
   .header {
-    @apply w-full h-[80px] sticky top-0 shadow-xl shadow-white/2 border-b-1 border-white/15 backdrop-blur-sm;
+    @apply w-full h-[80px] sticky top-0 shadow-xl shadow-white/2 border-b-1 border-white/15 backdrop-blur-sm px-0 sm:px-7;
     background-color: var(--color-dark-50);
+    box-shadow: var(--shadow-down-50);
   }
 
   .header-pc {
-    @apply max-w-6xl mx-auto h-full hidden md:flex justify-between items-center;
+    @apply max-w-6xl mx-auto h-full hidden md:flex justify-between items-center px-0;
   }
 
   .header-mobile {
-    @apply max-w-6xl mx-auto h-full flex md:hidden justify-center items-center;
-  }
-
-  .nav-mobile {
-    @apply flex w-full h-[50px] justify-center items-center border-t-1 border-white/15 backdrop-blur-sm sm:hidden;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    background-color: var(--color-dark-50);
-  }
-
-  .nav-mobile-item {
-    @apply flex flex-col justify-center items-center text-sm font-light;
+    @apply max-w-6xl mx-auto h-full flex md:hidden justify-center items-center px-0;
   }
 
   .logo-brand {
@@ -83,15 +103,64 @@ body {
   .menu-item:hover {
     background-color: var(--color-light-05);
     border: 0.5px solid var(--color-light-20);
-    box-shadow: 0 0 5px var(--color-light-05);
+    box-shadow: var(--shadow-light-05);
+  }
+
+  .menu-item img {
+    width: auto;
+    height: 20px;
+  }
+
+  .nav-mobile {
+    @apply flex w-full h-[80px] justify-center items-center border-t-1 border-white/15 backdrop-blur-sm sm:hidden;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: var(--color-dark-50);
+  }
+
+  .nav-mobile-item {
+    @apply flex flex-col justify-center items-center text-sm font-light;
+  }
+
+  .nav-mobile-item img {
+    width: auto;
+    height: 14px;
+  }
+
+  .nav-mobile-item svg {
+    width: auto;
+    height: 16px;
+  }
+
+  .btn-primary {
+    @apply flex justify-center py-3 px-4 rounded-md text-[14px] font-semibold;
+    background-color: var(--color-primary);
+    color: var(--color-dark);
+    border: 0.5px solid var(--color-light-20);
+    transition: var(--transition-all);
+  }
+
+  .btn-secondary {
+    @apply flex justify-center py-3 px-4 rounded-md text-sm font-semibold;
+    background-color: transparent;
+    border: 0.5px solid var(--color-primary-20);
+    transition: var(--transition-all);
+  }
+
+  .btn-primary:hover,
+  .btn-secondary:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-light);
+  }
+
+  .slide-text {
+    @apply text-center md:text-left;
   }
 }
 
 @media all and (max-width: 640px) {
   body {
     background-image: url("/img/bg-pattern-mobile.svg");
-    background-position: center top;
-    background-repeat: repeat-y;
-    color: var(--foreground);
   }
 }

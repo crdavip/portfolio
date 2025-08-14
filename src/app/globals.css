@@ -157,6 +157,19 @@ button {
   .slide-text {
     @apply text-center md:text-left;
   }
+
+  .stats {
+    @apply flex flex-col justify-center items-center gap-1 py-5 rounded-md;
+    background-color: transparent;
+    border: 0.5px solid var(--color-primary-20);
+    transition: var(--transition-all);
+  }
+
+  .stats:hover {
+    background-color: var(--color-light-05);
+    border: 0.5px solid var(--color-light-20);
+    box-shadow: var(--shadow-light-05);
+  }
 }
 
 @media all and (max-width: 640px) {

@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export const Slider = () => {
   return (
-    <div className="max-w-6xl mx-auto h-fit grid grid-cols-1 sm:grid-cols-2 gap-15 mt-20 sm:mt-0 px-7">
+    <section className="max-w-6xl mx-auto h-fit grid grid-cols-1 sm:grid-cols-2 gap-15 mt-20 sm:mt-0 px-7">
       <div className="flex flex-col justify-center">
         <h2 className="slide-text">Hola, mi nombre es</h2>
         <h1 className="slide-text">Cristian David</h1>
@@ -17,6 +17,6 @@ export const Slider = () => {
       <div className="flex flex-col items-end">
         <Image src="/img/slide-img.svg" alt="Slide Image" width={508} height={453} priority />
       </div>
-    </div>
+    </section>
   );
 };

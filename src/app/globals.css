@@ -37,6 +37,7 @@ body {
   background-position: center top;
   background-repeat: repeat-y;
   color: var(--foreground);
+  min-height: 3000px;
 }
 
 button {
@@ -70,7 +71,7 @@ button {
   }
 
   .header {
-    @apply w-full h-[80px] sticky top-0 shadow-xl shadow-white/2 border-b-1 border-white/15 backdrop-blur-sm px-0 sm:px-7;
+    @apply w-full h-[80px] sticky top-0 shadow-xl shadow-white/2 border-b-1 border-white/15 backdrop-blur-sm px-0 sm:px-7 z-50;
     background-color: var(--color-dark-50);
     box-shadow: var(--shadow-down-50);
   }
@@ -112,7 +113,7 @@ button {
   }
 
   .nav-mobile {
-    @apply flex w-full h-[80px] justify-center items-center border-t-1 border-white/15 backdrop-blur-sm sm:hidden;
+    @apply flex w-full h-[80px] justify-center items-center border-t-1 border-white/15 backdrop-blur-sm sm:hidden z-50;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -156,6 +157,15 @@ button {
 
   .slide-text {
     @apply text-center md:text-left;
+  }
+
+  .tool-item {
+    @apply w-[52px] h-[52px] sm:w-[77px] sm:h-[77px] flex justify-self-center;
+    transition: var(--transition-all);
+  }
+
+  .tool-item:hover {
+    transform: scale(1.25);
   }
 
   .stats {

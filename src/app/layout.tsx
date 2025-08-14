@@ -16,7 +16,7 @@ export default function RootLayout({
   const lang = "es";
   return (
     <html lang={lang}>
-      <body className={`${brandFont.className} antialiased min-h-[2000px]`}>
+      <body className={`${brandFont.className} antialiased`}>
         <Header lang={lang} />
         {children}
       </body>

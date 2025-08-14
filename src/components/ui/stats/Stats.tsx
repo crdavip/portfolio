@@ -14,15 +14,15 @@ export const Stats = () => {
   return (
     <section className="max-w-6xl mx-auto h-fit grid grid-cols-1 sm:grid-cols-2 gap-15 mt-25 sm:mt-50 px-7">
       <div className="flex flex-col">
-        <h3 className="mb-6">Sobre mí</h3>
-        <p className="mb-3">
+        <h3 className="mb-6 text-center md:text-left">Sobre mí</h3>
+        <p className="mb-3 text-center md:text-left">
           Apasionado por la tecnología y el arte visual,{" "}
           <span className="text-primary-color">
             me destaco por mi creatividad y mi habilidad para resolver problemas
           </span>{" "}
           de manera innovadora.
         </p>
-        <p>
+        <p className="text-center md:text-left">
           Mi capacidad de aprender y mis habilidades me han permitido contribuir a proyectos exitosos. Busco
           oportunidades para seguir creciendo profesionalmente y aportar mi experiencia a un equipo dinámico.
         </p>
@@ -33,14 +33,14 @@ export const Stats = () => {
       </div>
       <div className="flex flex-col">
         <div className="flex flex-col">
-          <div className="flex flex-col relative justify-center gap-15">
-            <div className="flex items-center gap-10">
+          <div className="flex flex-col relative items-center justify-center sm:items-start gap-15">
+            <div className="flex items-center gap-5 sm:gap-10">
               <div className="w-[16px] h-[80px] border-l border-blue-400" />
               <CodeXml size={40} strokeWidth={1} />
               <h4>Desarrollo de sitios web</h4>
             </div>
-            <div className="w-[16px] h-[16px] border border-blue-400 rounded-4xl absolute -left-2" />
-            <div className="flex items-center gap-10">
+            <div className="w-[16px] h-[16px] border border-blue-400 rounded-4xl absolute -translate-x-38.5 sm:-translate-x-1.5" />
+            <div className="flex items-center gap-5 sm:gap-10">
               <div className="w-[16px] h-[80px] border-l border-blue-400" />
               <Brush size={40} strokeWidth={1} />
               <h4>Desarrollo de sitios web</h4>

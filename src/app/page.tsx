@@ -1,4 +1,4 @@
-import { Portfolio, Slider, Stats, Tools } from "@/components";
+import { Contact, Portfolio, Slider, Stats, Tools } from "@/components";
 
 export default function Home() {
   return (
@@ -7,6 +7,7 @@ export default function Home() {
       <Tools />
       <Stats />
       <Portfolio />
+      <Contact />
     </main>
   );
 }

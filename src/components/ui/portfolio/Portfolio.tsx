@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { PortfolioCard } from "./PortfolioCard";
 import { portfolio } from "@/data";
 import { PorfolioItem } from "@/interfaces";

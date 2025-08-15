@@ -20,6 +20,7 @@ export const PortfolioCard = ({ portfolio }: Props) => {
   const [isHover, setIsHover] = useState(false);
   return (
     <div
+    onClick={()=>console.log(portfolio)}
       onMouseEnter={() => setIsHover(true)}
       onMouseLeave={() => setIsHover(false)}
       className={clsx("portfolio-item", {

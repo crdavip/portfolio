@@ -1,11 +1,15 @@
 @import "tailwindcss";
 
 :root {
-  --transition-all: ease 0.5s;
+  --transition-all: all 0.5s ease;
   --color-primary: #00b7e3;
   --color-primary-rgb: 0, 183, 227;
   --color-primary-20: rgba(var(--color-primary-rgb), 0.2);
+  --color-primary-75: rgba(var(--color-primary-rgb), 0.75);
   --color-secondary: #ff6f3c;
+  --color-secondary-rgb: 255, 111, 60;
+  --color-secondary-20: rgba(var(--color-secondary-rgb), 0.2);
+  --color-secondary-75: rgba(var(--color-secondary-rgb), 0.75);
   --color-dark: #121212;
   --color-dark-rgb: 18, 18, 18;
   --color-dark-50: rgba(var(--color-dark-rgb), 0.5);
@@ -15,6 +19,8 @@
   --color-light-20: rgba(var(--color-light-rgb), 0.2);
   --shadow-light-05: 0 0 5px var(--color-light-05);
   --shadow-down-50: 0 5px 50px var(--color-light-05);
+  --shadow-badget-dev: 0 0 5px var(--color-primary-20);
+  --shadow-badget-des: 0 0 5px var(--color-secondary-20);
 }
 
 @theme inline {
@@ -37,7 +43,7 @@ body {
   background-position: center top;
   background-repeat: repeat-y;
   color: var(--foreground);
-  min-height: 3000px;
+  min-height: 4000px;
 }
 
 button {
@@ -46,6 +52,18 @@ button {
 
 .text-primary-color {
   color: var(--color-primary);
+}
+
+.border-primary-color {
+  border: 0.5px solid var(--color-primary);
+}
+
+.border-l-primary-color {
+  border-left: 0.5px solid var(--color-primary);
+}
+
+.brand-transition {
+  transition: var(--transition-all);
 }
 
 @layer components {
@@ -179,6 +197,82 @@ button {
     background-color: var(--color-light-05);
     border: 0.5px solid var(--color-light-20);
     box-shadow: var(--shadow-light-05);
+  }
+
+  .portfolio-item {
+    @apply w-full h-[250px] sm:min-h-[350px] rounded-lg overflow-hidden relative cursor-pointer;
+    border: 1px solid var(--color-light-20);
+    box-shadow: var(--shadow-light-05);
+    transition: var(--transition-all);
+  }
+
+  .portfolio-item-dev {
+    border: 1px solid var(--color-primary-75);
+    box-shadow: 0 0 25px var(--color-primary-20);
+  }
+
+  .portfolio-item-des {
+    border: 1px solid var(--color-secondary-75);
+    box-shadow: 0 0 25px var(--color-secondary-20);
+  }
+
+  .portfolio-item-bg {
+    @apply w-full h-full absolute;
+    background: linear-gradient(180deg, rgba(var(--color-dark-rgb), 0) 25%, rgba(var(--color-dark-rgb), 0.75) 100%);
+  }
+
+  .portfolio-item-bg-hover {
+    @apply w-full h-full absolute;
+    background: linear-gradient(180deg, rgba(var(--color-dark-rgb), 0) 0%, rgba(var(--color-dark-rgb), 1) 90%);
+  }
+
+  .portfolio-item-blur {
+    @apply w-full h-[60%] absolute bottom-0 left-0;
+    backdrop-filter: blur(0px);
+    mask: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+  }
+
+    .portfolio-item-blur-hover {
+    @apply w-full h-[60%] absolute bottom-0 left-0;
+    backdrop-filter: blur(25px);
+    mask: linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 100%);
+  }
+
+  .portfolio-item img {
+    width: auto;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .badget {
+    @apply py-1 px-2 absolute top-4 right-4 flex items-center gap-2 rounded-md text-sm;
+    opacity: 1;
+    transition: var(--transition-all);
+  }
+
+  .badget-hover {
+    opacity: 0;
+  }
+
+  .badget-dev {
+    background-color: var(--color-primary-75);
+    border: 0.5px solid var(--color-light-20);
+    box-shadow: var(--shadow-badget-dev);
+  }
+
+  .badget-des {
+    background-color: var(--color-secondary-75);
+    border: 0.5px solid var(--color-light-20);
+    box-shadow: var(--shadow-badget-des);
+  }
+
+  .tag-box {
+    @apply py-1 px-3 flex items-center gap-2 font-light rounded-md;
+    background-color: var(--color-light-05);
+    border: 0.5px solid var(--color-light-20);
+    box-shadow: var(--shadow-light-05);
+    font-size: 12px;
   }
 }
 

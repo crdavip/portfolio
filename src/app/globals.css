@@ -194,7 +194,7 @@ button {
   }
 
   .tool-tip-container {
-    @apply absolute bottom-[calc(100%+0.5rem)] left-[50%] -translate-x-[50%] opacity-0 group-hover:opacity-100 w-auto;
+    @apply absolute bottom-[calc(100%+0.5rem)] left-[50%] -translate-x-[50%] opacity-0 group-focus:opacity-100 sm:group-hover:opacity-100 w-auto;
     transition: var(--transition-all);
   }
 

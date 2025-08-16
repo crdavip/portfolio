@@ -9,7 +9,7 @@ export const Tools = () => {
       <h3 className="text-center">Tecnologías, habilidades y herramientas que uso</h3>
       <div className="mt-15 grid grid-cols-4 sm:grid-cols-8 gap-x-20 gap-y-10 justify-items-center">
         {tools.map((tool) => (
-          <div key={tool.name} className="tool-item group relative">
+          <div key={tool.name} tabIndex={0} className="tool-item group relative focus:outline-none">
             <div className="tool-tip-container">
               <div className="tool-tip">
                 {tool.name}

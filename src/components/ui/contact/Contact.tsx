@@ -2,7 +2,7 @@ import { Github, Linkedin, User, Smartphone, Brush, CodeXml, MessageSquare, Chec
 
 export const Contact = () => {
   return (
-    <section className="max-w-6xl mx-auto h-fit grid grid-cols-1 sm:grid-cols-2 gap-15 px-7">
+    <section className="max-w-6xl mx-auto h-fit grid grid-cols-1 sm:grid-cols-2 mt-25 sm:mt-50 gap-15 px-7">
       <div className="flex flex-col justify-start items-center sm:items-start">
         <h3>Sígueme</h3>
         <div className="flex gap-4 mt-4">
@@ -44,12 +44,11 @@ export const Contact = () => {
           <div className="inline-flex items-start gap-3">
             <label className="relative flex cursor-pointer items-center rounded-md py-1.5" htmlFor="accept">
               <input
-                id="accept"
                 name="accept"
                 type="checkbox"
-                className="before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-blue-gray-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity checked:border-blue-500 checked:bg-blue-500 checked:before:bg-blue-500 hover:before:opacity-10"
+                className="accept-check before:content[''] peer before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity hover:before:opacity-10"
               />
-              <div className="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-white opacity-0 transition-opacity peer-checked:opacity-100">
+              <div className="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-black opacity-0 transition-opacity peer-checked:opacity-100">
                 <Check size={18} />
               </div>
             </label>

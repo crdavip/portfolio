@@ -5,7 +5,7 @@ export const toolItems = [
   },
   {
     src: "/img/tools/react.svg",
-    name: "Reacr",
+    name: "React",
   },
   {
     src: "/img/tools/next.svg",

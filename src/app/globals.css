@@ -53,6 +53,14 @@ button {
   color: var(--color-primary);
 }
 
+.text-dark-color {
+  color: var(--color-dark);
+}
+
+.bg-primary-color {
+  background-color: var(--color-primary);
+}
+
 .border-primary-color {
   border: 0.5px solid var(--color-primary);
 }
@@ -185,6 +193,24 @@ button {
     transform: scale(1.25);
   }
 
+  .tool-tip-container {
+    @apply absolute bottom-[calc(100%+0.5rem)] left-[50%] -translate-x-[50%] opacity-0 group-hover:opacity-100 w-auto;
+    transition: var(--transition-all);
+  }
+
+  .tool-tip {
+    @apply bottom-full right-0 rounded-md px-4 py-1 text-xs whitespace-nowrap;
+    color: var(--color-light);
+    background-color: var(--color-dark-75);
+    border: 0.5px solid var(--color-primary-20);
+    box-shadow: var(--shadow-light-05);
+  }
+
+  .tool-tip-arrow {
+    @apply absolute left-0 top-full h-2 w-full;
+    color: var(--color-primary-20);
+  }
+
   .stats {
     @apply flex flex-col justify-center items-center gap-1 py-5 rounded-md;
     background-color: transparent;
@@ -311,6 +337,22 @@ button {
 
   .label-message {
     @apply flex items-start relative;
+  }
+
+  .accept-check {
+    @apply relative h-5 w-5 cursor-pointer appearance-none rounded-md before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4;
+    border: 0.5px solid var(--color-primary-20);
+    transition: var(--transition-all);
+  }
+
+  .accept-check:checked {
+    border-color: var(--color-primary);
+    background-color: var(--color-primary);
+  }
+
+  .accept-check:checked::before {
+    content: var(--tw-content);
+    background-color: var(--color-primary);
   }
 
   .footer {

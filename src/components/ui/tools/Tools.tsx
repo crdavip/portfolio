@@ -9,8 +9,16 @@ export const Tools = () => {
       <h3 className="text-center">Tecnologías, habilidades y herramientas que uso</h3>
       <div className="mt-15 grid grid-cols-4 sm:grid-cols-8 gap-x-20 gap-y-10 justify-items-center">
         {tools.map((tool) => (
-          <div key={tool.name} className="tool-item">
-            <Image src={tool.src} alt={tool.name} width={77} height={77} priority/>
+          <div key={tool.name} className="tool-item group relative">
+            <div className="tool-tip-container">
+              <div className="tool-tip">
+                {tool.name}
+                <svg className="tool-tip-arrow" x="0px" y="0px" viewBox="0 0 255 255" xmlSpace="preserve">
+                  <polygon className="fill-current" points="0,0 127.5,127.5 255,0" />
+                </svg>
+              </div>
+            </div>
+            <Image src={tool.src} alt={tool.name} width={77} height={77} priority />
           </div>
         ))}
       </div>

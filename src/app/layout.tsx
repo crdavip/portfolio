@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { brandFont } from "@/config";
-import { Header } from "@/components";
+import { Footer, Header } from "@/components";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -19,6 +19,7 @@ export default function RootLayout({
       <body className={`${brandFont.className} antialiased`}>
         <Header lang={lang} />
         {children}
+        <Footer />
       </body>
     </html>
   );

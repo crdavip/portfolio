@@ -312,6 +312,10 @@ button {
   .label-message {
     @apply flex items-start relative;
   }
+
+  .footer {
+    @apply flex justify-center items-center py-10 mt-25 text-sm font-light;
+  }
 }
 
 @media all and (max-width: 640px) {

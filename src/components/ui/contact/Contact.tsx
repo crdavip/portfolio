@@ -2,7 +2,7 @@ import { Github, Linkedin, User, Smartphone, Brush, CodeXml, MessageSquare, Chec
 
 export const Contact = () => {
   return (
-    <section className="max-w-6xl mx-auto h-fit grid grid-cols-1 sm:grid-cols-2 gap-15 my-25 sm:my-50 px-7">
+    <section className="max-w-6xl mx-auto h-fit grid grid-cols-1 sm:grid-cols-2 gap-15 px-7">
       <div className="flex flex-col justify-start items-center sm:items-start">
         <h3>Sígueme</h3>
         <div className="flex gap-4 mt-4">

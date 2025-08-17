@@ -16,6 +16,7 @@
   --color-light: #f8fafc;
   --color-light-rgb: 248, 250, 252;
   --color-light-05: rgba(var(--color-light-rgb), 0.05);
+  --color-light-10: rgba(var(--color-light-rgb), 0.1);
   --color-light-20: rgba(var(--color-light-rgb), 0.2);
   --shadow-light-05: 0 0 5px var(--color-light-05);
   --shadow-down-50: 0 5px 50px var(--color-light-05);
@@ -65,6 +66,10 @@ button {
   border: 0.5px solid var(--color-primary);
 }
 
+.border-b-light-color {
+  border: 0.5px solid rgba(var(--color-light-rgb), 0.2);
+}
+
 .border-l-primary-color {
   border-left: 0.5px solid var(--color-primary);
 }
@@ -96,9 +101,16 @@ button {
   }
 
   .header {
-    @apply w-full h-[80px] sticky top-0 shadow-xl shadow-white/2 border-b-1 border-white/15 backdrop-blur-sm px-0 sm:px-7 z-50;
+    @apply w-full h-[80px] sticky top-0 px-0 sm:px-7 z-50;
+    border-bottom: 0.5px solid transparent;
+    transition: var(--transition-all);
+  }
+
+  .haeder-active {
+    @apply backdrop-blur-sm;
     background-color: var(--color-dark-75);
     box-shadow: var(--shadow-down-50);
+    border-bottom: 0.5px solid var(--color-light-10);
   }
 
   .header-pc {
@@ -174,10 +186,16 @@ button {
     transition: var(--transition-all);
   }
 
-  .btn-primary:hover,
+  .btn-primary:hover {
+    background-color: var(--color-primary-75);
+    border: 0.5px solid var(--color-light-20);
+    box-shadow: var(--shadow-light-05);
+  }
+
   .btn-secondary:hover {
-    background-color: var(--color-secondary);
-    color: var(--color-light);
+    background-color: var(--color-light-05);
+    border: 0.5px solid var(--color-light-20);
+    box-shadow: var(--shadow-light-05);
   }
 
   .slide-text {
@@ -318,6 +336,7 @@ button {
     @apply w-full py-3 pl-12 rounded-md;
     background-color: transparent;
     border: 0.5px solid var(--color-primary-20);
+    transition: var(--transition-all);
   }
 
   .input-form::placeholder {

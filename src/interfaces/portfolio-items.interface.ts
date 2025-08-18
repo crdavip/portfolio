@@ -3,7 +3,7 @@ export interface PorfolioItem {
   category: ValidCategories;
   tools: string[];
   tags: string[];
-  cover: string;
+  images: string[];
 }
 
 export type ValidCategories = "Desarrollo" | "Diseño";

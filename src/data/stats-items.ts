@@ -2,19 +2,19 @@ import { StatsItem } from "@/interfaces";
 
 export const stats: StatsItem[] = [
   {
-    title: "Años",
+    title: "years",
     stat: 4,
   },
   {
-    title: "Webs",
+    title: "webs",
     stat: 16,
   },
   {
-    title: "Piezas",
+    title: "pieces",
     stat: 100,
   },
   {
-    title: "Cafés",
+    title: "coffees",
     stat: 1500,
   },
 ];

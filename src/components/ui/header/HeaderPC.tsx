@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import { MenuItem } from "@/interfaces";
 
@@ -19,10 +20,12 @@ export const HeaderPC = ({ menuItems }: Props) => {
       <nav>
         <ul className="flex gap-5">
           {menuItems.map((item) => (
-            <li key={item.text} className="menu-item">
-              {item.icon}
-              {item.text}
-            </li>
+            <Link key={item.text} href={item.link}>
+              <li className="menu-item">
+                {item.icon}
+                {item.text}
+              </li>
+            </Link>
           ))}
         </ul>
       </nav>

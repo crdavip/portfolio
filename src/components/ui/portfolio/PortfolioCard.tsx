@@ -8,19 +8,22 @@ import { PorfolioItem } from "@/interfaces";
 import { ToolsUsed } from "../tools/ToolsUsed";
 import { Modal } from "../modal/Modal";
 import { Tags } from "../tags/Tags";
+import { useTranslations } from "next-intl";
 
 interface Props {
   portfolio: PorfolioItem;
 }
 
 const categoryIcon = {
-  Desarrollo: <CodeXml size={18} />,
-  Diseño: <Brush size={18} />,
+  development: <CodeXml size={18} />,
+  design: <Brush size={18} />,
 };
 
 export const PortfolioCard = ({ portfolio }: Props) => {
   const [open, setOpen] = useState(false);
   const [isHover, setIsHover] = useState(false);
+
+  const t = useTranslations("Portfolio");
 
   const handleOnClose = () => {
     document.documentElement.style.setProperty("overflow-y", "auto");
@@ -49,20 +52,20 @@ export const PortfolioCard = ({ portfolio }: Props) => {
         onMouseEnter={() => setIsHover(true)}
         onMouseLeave={() => setIsHover(false)}
         className={clsx("portfolio-item", {
-          "portfolio-item-dev": portfolio.category === "Desarrollo" && isHover,
-          "portfolio-item-des": portfolio.category === "Diseño" && isHover,
+          "portfolio-item-dev": portfolio.category === "development" && isHover,
+          "portfolio-item-des": portfolio.category === "design" && isHover,
         })}
       >
         <div className="w-full h-full z-1 absolute top-0 left-0 flex">
           <div
             className={clsx("badget", {
-              "badget-dev": portfolio.category === "Desarrollo",
-              "badget-des": portfolio.category === "Diseño",
+              "badget-dev": portfolio.category === "development",
+              "badget-des": portfolio.category === "design",
               "badget-hover": isHover,
             })}
           >
             {categoryIcon[portfolio.category]}
-            {portfolio.category}
+            {t(portfolio.category)}
           </div>
           <div
             className={clsx("absolute bottom-4 left-4 flex flex-col gap-3 brand-transition", {

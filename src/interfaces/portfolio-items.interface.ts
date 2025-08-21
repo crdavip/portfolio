@@ -6,4 +6,4 @@ export interface PorfolioItem {
   images: string[];
 }
 
-export type ValidCategories = "Desarrollo" | "Diseño";
+export type ValidCategories = "development" | "design";

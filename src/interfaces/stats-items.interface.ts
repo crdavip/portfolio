@@ -3,4 +3,4 @@ export interface StatsItem {
   stat: number;
 }
 
-export type ValidStats = "Años" | "Webs" | "Piezas" | "Cafés";
+export type ValidStats = "years" | "webs" | "pieces" | "coffees";

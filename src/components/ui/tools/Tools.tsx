@@ -1,12 +1,14 @@
 import Image from "next/image";
+import { useTranslations } from "next-intl";
 import { toolItems } from "@/data";
 import { ToolItem } from "@/interfaces";
 
 export const Tools = () => {
   const tools: ToolItem[] = toolItems;
+  const t = useTranslations("Tools");
   return (
     <section className="max-w-6xl mx-auto h-fit flex flex-col justify-center items-center mt-25 sm:mt-50 px-12 sm:px-7">
-      <h3 className="text-center">Tecnologías, habilidades y herramientas que uso</h3>
+      <h3 className="text-center">{t("h3")}</h3>
       <div className="mt-15 grid grid-cols-4 sm:grid-cols-8 gap-x-20 gap-y-10 justify-items-center">
         {tools.map((tool) => (
           <div key={tool.name} tabIndex={0} className="tool-item group relative focus:outline-none">

@@ -1,0 +1,54 @@
+{
+  "Menu": {
+    "item-1": "Resumen",
+    "item-2": "Portafolio",
+    "item-3": "Contacto",
+    "item-4": "EN"
+  },
+  "Slider": {
+    "h2": "Hola, mi nombre es",
+    "h1": "Cristian David",
+    "h3": "soy ",
+    "span": "Diseñador y Desarrollador",
+    "btn-primary": "¿Tienes un proyecto?",
+    "btn-secondary": "Ver proyectos"
+  },
+  "Tools": {
+    "h3": "Tecnologías, habilidades y herramientas que uso"
+  },
+  "Stats": {
+    "h3": "Sobre mí",
+    "p1": "Apasionado por la tecnología y el arte visual, ",
+    "span": "me destaco por mi creatividad y mi habilidad para resolver problemas de manera innovadora.",
+    "p2": "Mi capacidad de aprender y mis habilidades me han permitido contribuir a proyectos exitosos. Busco oportunidades para seguir creciendo profesionalmente y aportar mi experiencia a un equipo dinámico.",
+    "btn-primary": "Contactar",
+    "btn-secondary": "Descargar CV",
+    "h4-1": "Desarrollo de sitios web",
+    "h4-2": "Diseño Gráfico y Web",
+    "years": "Años",
+    "webs": "Sitios",
+    "pieces": "Piezas",
+    "coffees": "Cafés"
+  },
+  "Portfolio": {
+    "h3": "Algunos proyectos recientes",
+    "development": "Desarrollo",
+    "design": "Diseño"
+  },
+  "Contact": {
+    "h3-1": "Sígueme",
+    "p-1": "Estoy disponible para proyectos independientes.",
+    "h3-2": "Sobre mí",
+    "p-2": "Soy desarrollador y diseñador profesional. No dudes en ponerte en contacto conmigo.",
+    "name": "Nombre",
+    "phone": "Celular",
+    "design": "Diseño",
+    "develop": "Desarrollo",
+    "message": "Cuéntame sobre el proyecto",
+    "accept": "Acepto los términos y condiciones y las políticas de privacidad",
+    "btn-primary": "Enviar"
+  },
+  "Footer": {
+    "p": "Todos los derechos reservados."
+  }
+}

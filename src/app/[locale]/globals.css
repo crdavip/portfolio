@@ -98,11 +98,11 @@ button {
 }
 
 .border-b-light-color {
-  border: 0.5px solid rgba(var(--color-light-rgb), 0.2);
+  border: 0.5px solid var(--color-light-20);
 }
 
 .border-l-primary-color {
-  border-left: 0.5px solid var(--color-primary);
+  border-left: 0.5px solid var(--color-primary-20);
 }
 
 .brand-transition {

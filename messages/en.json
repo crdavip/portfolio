@@ -1,0 +1,54 @@
+{
+  "Menu": {
+    "item-1": "About",
+    "item-2": "Portfolio",
+    "item-3": "Contact",
+    "item-4": "ES"
+  },
+  "Slider": {
+    "h2": "Hello, my name is",
+    "h1": "Cristian David",
+    "h3": "I am a ",
+    "span": "Designer and Developer",
+    "btn-primary": "Do you have a project?",
+    "btn-secondary": "View Projects"
+  },
+  "Tools": {
+    "h3": "Technologies, skills, and tools I use"
+  },
+  "Stats": {
+    "h3": "About Me",
+    "p1": "Passionate about technology and visual arts, ",
+    "span": "I stand out for my creativity and innovative problem-solving skills.",
+    "p2": "My ability to learn and my skills have allowed me to contribute to successful projects. I'm looking for opportunities to continue growing professionally and contribute my experience to a dynamic team.",
+    "btn-primary": "Contact",
+    "btn-secondary": "Download CV",
+    "h4-1": "Website Development",
+    "h4-2": "Graphic & Web Design",
+    "years": "Years",
+    "webs": "Webs",
+    "pieces": "Pieces",
+    "coffees": "Coffees"
+  },
+  "Portfolio": {
+    "h3": "Some Recent Projects",
+    "development": "Development",
+    "design": "Design"
+  },
+  "Contact": {
+    "h3-1": "Follow Me",
+    "p-1": "I'm available for freelance projects.",
+    "h3-2": "About Me",
+    "p-2": "I'm a professional developer and designer. Feel free to contact me.",
+    "name": "Name",
+    "phone": "Phone",
+    "design": "Design",
+    "develop": "Development",
+    "message": "Tell me about your project",
+    "accept": "I accept the terms and conditions and privacy policies",
+    "btn-primary": "Send"
+  },
+  "Footer": {
+    "p": "All rights reserved."
+  }
+}

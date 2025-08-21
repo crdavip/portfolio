@@ -27,14 +27,24 @@ export const Contact = () => {
           </label>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <label htmlFor="design" className="label-form">
-            <Brush className="absolute ml-3 text-primary-color" strokeWidth={1} />
-            <input type="text" name="design" placeholder={t("design")} className="input-form" />
-          </label>
-          <label htmlFor="develop" className="label-form">
-            <CodeXml className="absolute ml-3 text-primary-color" strokeWidth={1} />
-            <input type="text" name="develop" placeholder={t("develop")} className="input-form" />
-          </label>
+          <div className="flex items-center justify-center">
+            <input type="checkbox" id="design-option" value="design" className="peer absolute hidden" />
+            <label htmlFor="design-option" className="check-form">
+              <div className="flex items-center gap-4">
+                <Brush className="text-primary-color" strokeWidth={1} />
+                <p>{t("design")}</p>
+              </div>
+            </label>
+          </div>
+          <div className="flex items-center justify-center">
+            <input type="checkbox" id="develop-option" value="develop" className="peer absolute hidden" />
+            <label htmlFor="develop-option" className="check-form">
+              <div className="flex items-center gap-4">
+                <CodeXml className="text-primary-color" strokeWidth={1} />
+                <p>{t("develop")}</p>
+              </div>
+            </label>
+          </div>
         </div>
         <label htmlFor="message" className="label-message">
           <MessageSquare className="absolute ml-3 mt-3 text-primary-color" strokeWidth={1} />

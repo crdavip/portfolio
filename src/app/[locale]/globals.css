@@ -416,6 +416,20 @@ button {
     box-shadow: var(--shadow-light-05);
   }
 
+  .check-form {
+    @apply w-full py-3 pl-3 rounded-md cursor-pointer;
+    background-color: transparent;
+    border: 0.5px solid var(--color-primary-20);
+    transition: var(--transition-all);
+  }
+
+  .check-form:is(:where(.peer):checked ~ *) {
+    outline: none;
+    background-color: var(--color-light-05);
+    border: 0.5px solid var(--color-light-20);
+    box-shadow: var(--shadow-light-05);
+  }
+
   .label-form {
     @apply flex items-center relative;
   }

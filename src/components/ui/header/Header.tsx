@@ -15,16 +15,14 @@ export const Header = ({ menuItems }: Props) => {
   useEffect(() => {
     const handleScroll = () => {
       const scrolled = window.scrollY > 0;
-      if (scrolled !== isScrolled) {
-        setIsScrolled(scrolled);
-      }
+      setIsScrolled(scrolled);
     };
-
     window.addEventListener("scroll", handleScroll);
+    handleScroll();
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
-  }, [isScrolled]);
+  }, []);
 
   return (
     <header

@@ -50,7 +50,7 @@ export default async function RootLayout({
   ];
   return (
     <html lang={locale}>
-      <body className={`${brandFont.className} antialiased`}>
+      <body className={`${brandFont.className} antialiased scroll-mt-0`} id="Home">
         <NextIntlClientProvider locale={locale}>
           <Header menuItems={menuItems} />
           <NavbarMobile menuItems={menuItems} />

@@ -8,7 +8,7 @@ export const Portfolio = () => {
   const t = useTranslations("Portfolio");
 
   return (
-    <section className="max-w-6xl mx-auto h-fit flex flex-col justify-center items-center mt-25 sm:mt-50 px-7">
+    <section className="max-w-6xl mx-auto h-fit flex flex-col justify-center items-center mt-25 sm:mt-50 px-7 scroll-mt-50" id="Portfolio">
       <h3 className="text-center">{t("h3")}</h3>
       <div className="mt-15 grid grid-cols-1 sm:grid-cols-4 gap-6">
         {portfolioItems.map((portfolio) => (

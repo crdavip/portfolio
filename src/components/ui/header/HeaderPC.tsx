@@ -9,14 +9,16 @@ interface Props {
 export const HeaderPC = ({ menuItems }: Props) => {
   return (
     <div className="header-pc">
-      <Image
-        src="/img/Logo-white.svg"
-        alt="Logo Cristian David"
-        className="logo-brand"
-        width={200}
-        height={36}
-        priority
-      />
+      <Link href={"/#Home"}>
+        <Image
+          src="/img/Logo-white.svg"
+          alt="Logo Cristian David"
+          className="logo-brand"
+          width={200}
+          height={36}
+          priority
+        />
+      </Link>
       <nav>
         <ul className="flex gap-5">
           {menuItems.map((item) => (

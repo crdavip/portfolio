@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 
@@ -13,8 +14,12 @@ export const Slider = () => {
           <span className="text-primary-color">{t("span")}</span>
         </h3>
         <div className="flex mt-10 gap-5 justify-center sm:justify-start">
-          <button className="btn-primary">{t("btn-primary")}</button>
-          <button className="btn-secondary">{t("btn-secondary")}</button>
+          <Link href={"/#Contact"}>
+            <button className="btn-primary">{t("btn-primary")}</button>
+          </Link>
+          <Link href={"/#Portfolio"}>
+            <button className="btn-secondary">{t("btn-secondary")}</button>
+          </Link>
         </div>
       </div>
       <div className="flex flex-col items-end">

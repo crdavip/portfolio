@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Brush, CodeXml, Coffee, Images, Medal, Rocket } from "lucide-react";
 import { stats } from "@/data";
 import { StatsItem } from "@/interfaces";
@@ -19,15 +20,13 @@ export const Stats = () => {
         <h3 className="mb-6 text-center md:text-left">{t("h3")}</h3>
         <p className="mb-3 text-center md:text-left">
           {t("p1")}
-          <span className="text-primary-color">
-            {t("span")}
-          </span>
+          <span className="text-primary-color">{t("span")}</span>
         </p>
-        <p className="text-center md:text-left">
-          {t("p2")}
-        </p>
+        <p className="text-center md:text-left">{t("p2")}</p>
         <div className="flex mt-10 gap-5 justify-center sm:justify-start">
-          <button className="btn-primary">{t("btn-primary")}</button>
+          <Link href={"/#Contact"}>
+            <button className="btn-primary">{t("btn-primary")}</button>
+          </Link>
           <button className="btn-secondary">{t("btn-secondary")}</button>
         </div>
       </div>

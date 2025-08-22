@@ -4,7 +4,7 @@ import { Github, Linkedin, User, Smartphone, Brush, CodeXml, MessageSquare, Chec
 export const Contact = () => {
   const t = useTranslations("Contact");
   return (
-    <section className="max-w-6xl mx-auto h-fit grid grid-cols-1 sm:grid-cols-2 mt-25 sm:mt-50 gap-15 px-7">
+    <section className="max-w-6xl mx-auto h-fit grid grid-cols-1 sm:grid-cols-2 mt-25 sm:mt-50 gap-15 px-7" id="Contact">
       <div className="flex flex-col justify-start items-center sm:items-start">
         <h3>{t("h3-1")}</h3>
         <div className="flex gap-4 mt-4">

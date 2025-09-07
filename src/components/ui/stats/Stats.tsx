@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Brush, CodeXml, Coffee, Images, Medal, Rocket } from "lucide-react";
 import { stats } from "@/data";
 import { StatsItem } from "@/interfaces";
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 
 export const Stats = () => {
   const statsIcons = {
@@ -14,6 +14,10 @@ export const Stats = () => {
 
   const statsItems: StatsItem[] = stats;
   const t = useTranslations("Stats");
+
+  const locale = useLocale();
+  const CVLink = locale === "es" ? "/cv_es.pdf" : "/cv_en.pdf";
+
   return (
     <section className="max-w-6xl mx-auto h-fit grid grid-cols-1 sm:grid-cols-2 gap-15 mt-25 sm:mt-50 px-7">
       <div className="flex flex-col">
@@ -27,7 +31,9 @@ export const Stats = () => {
           <Link href={"/#Contact"}>
             <button className="btn-primary">{t("btn-primary")}</button>
           </Link>
-          <button className="btn-secondary">{t("btn-secondary")}</button>
+          <Link href={CVLink} target="_blank">
+            <button className="btn-secondary">{t("btn-secondary")}</button>
+          </Link>
         </div>
       </div>
       <div className="flex flex-col">

@@ -33,7 +33,9 @@
   "Portfolio": {
     "h3": "Algunos proyectos recientes",
     "development": "Desarrollo",
-    "design": "Diseño"
+    "design": "Diseño",
+    "btn-primary": "Demo",
+    "btn-secondary": "Código"
   },
   "Contact": {
     "h3-1": "Sígueme",

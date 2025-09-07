@@ -20,8 +20,8 @@ export const Modal = ({ open, onClose, category, children }: Props) => {
         onClick={(e) => e.stopPropagation()}
         className={clsx("modal", {
           "modal-active": open,
-          "border-primary-color": category === "Desarrollo",
-          "border-secondary-color": category === "Diseño",
+          "border-primary-color": category === "development",
+          "border-secondary-color": category === "design",
         })}
       >
         <button onClick={onClose} className="modal-close">

@@ -33,7 +33,9 @@
   "Portfolio": {
     "h3": "Some Recent Projects",
     "development": "Development",
-    "design": "Design"
+    "design": "Design",
+    "btn-primary": "Demo",
+    "btn-secondary": "Code"
   },
   "Contact": {
     "h3-1": "Follow Me",

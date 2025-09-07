@@ -1,9 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Image from "next/image";
 import clsx from "clsx";
-import { Brush, CodeXml } from "lucide-react";
+import { Brush, Code, CodeXml, View } from "lucide-react";
 import { PorfolioItem } from "@/interfaces";
 import { ToolsUsed } from "../tools/ToolsUsed";
 import { Modal } from "../modal/Modal";
@@ -41,9 +42,27 @@ export const PortfolioCard = ({ portfolio }: Props) => {
         <div className="flex flex-col justify-center items-center gap-4">
           <h2>{portfolio.title}</h2>
           <ToolsUsed tool={portfolio.tools} />
-          <Tags tags={portfolio.tags} category={portfolio.category} className="mb-8" />
+          <Tags tags={portfolio.tags} category={portfolio.category} />
+          {
+             portfolio.category === "development" && (
+          <div className="flex gap-5 justify-center sm:justify-start my-3">
+            <Link href={"https://github.com/crdavip/aulacontrol"} target="_blank">
+              <button className="btn-primary"><View />{t("btn-primary")}</button>
+            </Link>
+            <Link href={"https://github.com/crdavip/aulacontrol"} target="_blank">
+              <button className="btn-secondary"><Code />{t("btn-secondary")}</button>
+            </Link>
+          </div>
+             ) 
+          }
           {portfolio.images.map((image, index) => (
-            <Image key={`${image}-${index}`} src={image} width={1024} height={1024} alt="Imagen" />
+            <Image
+              key={`${portfolio.title}-${index}`}
+              src={`/img/portfolio/${portfolio.title}/${image}`}
+              width={1024}
+              height={1024}
+              alt="Imagen"
+            />
           ))}
         </div>
       </Modal>
@@ -88,7 +107,13 @@ export const PortfolioCard = ({ portfolio }: Props) => {
             "portfolio-item-bg-hover": isHover,
           })}
         />
-        <Image src={portfolio.images[0]} alt={portfolio.title} width={623} height={415} priority={false} />
+        <Image
+          src={`/img/portfolio/${portfolio.title}/${portfolio.images[0]}`}
+          alt={portfolio.title}
+          width={623}
+          height={415}
+          priority={false}
+        />
       </div>
     </>
   );

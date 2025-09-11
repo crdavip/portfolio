@@ -23,7 +23,7 @@ export const Contact = () => {
         <h3 className="text-center sm:text-left mt-8">{t("h3-2")}</h3>
         <p className="text-center sm:text-left mt-4">{t("p-2")}</p>
       </div>
-      <form className="flex flex-col gap-4" autoComplete="off">
+      <form className="flex flex-col gap-4" autoComplete="off" action="https://formspree.io/f/xvgbllkd" method="POST">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <label htmlFor="fullName" className="label-form">
             <User className="absolute ml-3 text-primary-color" strokeWidth={1} />
@@ -31,7 +31,14 @@ export const Contact = () => {
           </label>
           <label htmlFor="phone" className="label-form">
             <Smartphone className="absolute ml-3 text-primary-color" strokeWidth={1} />
-            <input type="text" name="phone" id="phone" autoComplete="off" placeholder={t("phone")} className="input-form" />
+            <input
+              type="text"
+              name="phone"
+              id="phone"
+              autoComplete="off"
+              placeholder={t("phone")}
+              className="input-form"
+            />
           </label>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

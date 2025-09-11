@@ -58,7 +58,7 @@ export const PortfolioCard = ({ portfolio }: Props) => {
           {portfolio.images.map((image, index) => (
             <Image
               key={`${portfolio.title}-${index}`}
-              src={`/img/portfolio/${portfolio.title}/${image}`}
+              src={`https://res.cloudinary.com/dym3bnvpy/image/upload/v1757607361/${image}`}
               width={1024}
               height={1024}
               alt="Imagen"
@@ -109,7 +109,7 @@ export const PortfolioCard = ({ portfolio }: Props) => {
           })}
         />
         <Image
-          src={`/img/portfolio/${portfolio.title}/${portfolio.images[0]}`}
+          src={`https://res.cloudinary.com/dym3bnvpy/image/upload/v1757607361/${portfolio.images[0]}`}
           alt={portfolio.title}
           width={623}
           height={415}

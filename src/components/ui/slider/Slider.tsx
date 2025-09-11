@@ -23,7 +23,7 @@ export const Slider = () => {
         </div>
       </div>
       <div className="flex flex-col items-end">
-        <Image src="/img/slide-img.svg" alt="Slide Image" width={508} height={453} priority />
+        <Image src="/img/slide-img.png" alt="Slide Image" width={508} height={453} priority />
       </div>
     </section>
   );

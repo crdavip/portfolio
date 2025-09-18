@@ -16,6 +16,8 @@ export const portfolio: PorfolioItem[] = [
       "06_yyresh.png",
       "07_ids62b.png",
     ],
+    demo: "https://educaverso-crdavip.vercel.app",
+    code: "https://github.com/crdavip/educaverso-frontend",
   },
   {
     title: "Vicenza",
@@ -41,6 +43,8 @@ export const portfolio: PorfolioItem[] = [
       "08_tucgq6.png",
       "09_wx9g5b.png",
     ],
+    demo: "https://aulacontrol.free.nf",
+    code: "https://github.com/crdavip/aulacontrol",
   },
   {
     title: "Coquette",
@@ -67,6 +71,8 @@ export const portfolio: PorfolioItem[] = [
       "09_s3hcjf.png",
       "10_qfdzyv.png",
     ],
+    demo: "https://teslo-crdavip.vercel.app",
+    code: "https://github.com/crdavip/teslo-shop",
   },
   {
     title: "Integrar",
@@ -81,6 +87,8 @@ export const portfolio: PorfolioItem[] = [
     tools: ["HTML", "CSS", "JavaScript", "PHP", "MySQL"],
     tags: ["Web", "FullStack"],
     images: ["00_qlk9i6.png", "01_uusedd.png", "02_fcw8ps.png", "03_sa4snh.png"],
+    demo: "https://apptransuperior.free.nf",
+    code: "https://github.com/crdavip/transuperior",
   },
   {
     title: "Infinito",

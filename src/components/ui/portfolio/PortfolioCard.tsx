@@ -43,18 +43,22 @@ export const PortfolioCard = ({ portfolio }: Props) => {
           <h2>{portfolio.title}</h2>
           <ToolsUsed tool={portfolio.tools} />
           <Tags tags={portfolio.tags} category={portfolio.category} />
-          {
-             portfolio.category === "development" && (
-          <div className="flex gap-5 justify-center sm:justify-start my-3">
-            <Link href={"https://github.com/crdavip/aulacontrol"} target="_blank">
-              <button className="btn-primary"><View />{t("btn-primary")}</button>
-            </Link>
-            <Link href={"https://github.com/crdavip/aulacontrol"} target="_blank">
-              <button className="btn-secondary"><Code />{t("btn-secondary")}</button>
-            </Link>
-          </div>
-             ) 
-          }
+          {portfolio.code && portfolio.demo && (
+            <div className="flex gap-5 justify-center sm:justify-start my-3">
+              <Link href={portfolio.demo} target="_blank">
+                <button className="btn-primary">
+                  <View />
+                  {t("btn-primary")}
+                </button>
+              </Link>
+              <Link href={portfolio.code} target="_blank">
+                <button className="btn-secondary">
+                  <Code />
+                  {t("btn-secondary")}
+                </button>
+              </Link>
+            </div>
+          )}
           {portfolio.images.map((image, index) => (
             <Image
               key={`${portfolio.title}-${index}`}

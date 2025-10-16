@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@variant dark (&:where(.dark, .dark *));
+
 :root {
   --transition-all: all 0.5s ease;
   --color-primary: #00b7e3;
@@ -25,17 +27,9 @@
 }
 
 @theme inline {
-  --color-background: var(--color-dark);
-  --color-foreground: var(--color-light);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: var(--color-dark);
-    --foreground: var(--color-light);
-  }
+  --color-background: var(--color-light);
+  --color-foreground: var(--color-dark);
+  --color-primary: var(--color-primary);
 }
 
 * {
@@ -137,11 +131,9 @@ button {
     transition: var(--transition-all);
   }
 
-  .haeder-active {
-    @apply backdrop-blur-sm;
-    background-color: var(--color-dark-75);
-    box-shadow: var(--shadow-down-50);
-    border-bottom: 0.5px solid var(--color-light-10);
+  .header-active {
+    @apply backdrop-blur-sm bg-background/75 dark:bg-foreground/75 border-b border-b-foreground/10 dark:border-b-background/10 shadow-2xl/10 shadow-foreground dark:shadow-background;
+    transition: var(--transition-all);
   }
 
   .header-pc {
@@ -162,17 +154,13 @@ button {
   }
 
   .menu-item {
-    @apply flex items-center gap-4 font-semibold px-4 py-2 rounded-md;
-    background-color: transparent;
+    @apply flex items-center gap-4 font-semibold px-4 py-2 rounded-md bg-transparent cursor-pointer;
     border: 0.5px solid transparent;
-    cursor: pointer;
     transition: var(--transition-all);
   }
 
   .menu-item:hover {
-    background-color: var(--color-light-05);
-    border: 0.5px solid var(--color-light-20);
-    box-shadow: var(--shadow-light-05);
+    @apply bg-foreground/5 dark:bg-background/5 border border-foreground/20 dark:border-background/20 shadow-lg/5 shadow-foreground dark:shadow-background;
   }
 
   .menu-item img {
@@ -181,11 +169,10 @@ button {
   }
 
   .nav-mobile {
-    @apply flex w-full h-[80px] justify-center items-center border-t-1 border-white/15 backdrop-blur-sm sm:hidden z-50;
+    @apply flex w-full h-[80px] justify-center items-center backdrop-blur-sm bg-background/75 dark:bg-foreground/75 border-t border-t-foreground/10 dark:border-t-background/10 sm:hidden z-50;
     position: fixed;
     bottom: 0;
     left: 0;
-    background-color: var(--color-dark-75);
   }
 
   .nav-mobile-item {
@@ -203,30 +190,26 @@ button {
   }
 
   .btn-primary {
-    @apply flex justify-center items-center gap-2 py-2 px-4 rounded-md text-[14px] font-semibold;
+    @apply flex justify-center items-center gap-2 py-2 px-4 rounded-md text-[14px] font-semibold text-background dark:text-foreground border border-background/20 dark:border-foreground/20;
     background-color: var(--color-primary);
-    color: var(--color-dark);
-    border: 0.5px solid var(--color-light-20);
     transition: var(--transition-all);
   }
 
   .btn-secondary {
-    @apply flex justify-center items-center gap-2 py-2 px-4 rounded-md text-sm font-semibold;
-    background-color: transparent;
-    border: 0.5px solid var(--color-primary-20);
+    @apply flex justify-center items-center gap-2 py-2 px-4 rounded-md text-sm font-semibold bg-transparent border border-primary/50 dark:border-primary/20;
     transition: var(--transition-all);
   }
 
-  .btn-primary:hover {
-    background-color: var(--color-primary-75);
+  .btn-primary:hover,
+  .btn-primary:focus {
+    @apply scale-95 bg-primary/75;
     border: 0.5px solid var(--color-light-20);
     box-shadow: var(--shadow-light-05);
   }
 
-  .btn-secondary:hover {
-    background-color: var(--color-light-05);
-    border: 0.5px solid var(--color-light-20);
-    box-shadow: var(--shadow-light-05);
+  .btn-secondary:hover,
+  .btn-secondary:focus {
+    @apply scale-95 bg-foreground/5 dark:bg-background/5 border-foreground/20 dark:border-background/20 shadow-lg/5 shadow-foreground dark:shadow-background;
   }
 
   .slide-text {

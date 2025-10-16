@@ -1,37 +1,44 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import clsx from "clsx";
-import { MenuItem } from "@/interfaces";
-import { HeaderMobile, HeaderPC } from "@/components";
+import { HeaderMain } from "./HeaderMain";
+import { NavbarMobile } from "./NavbarMobile";
+import type { MenuItem } from "@/interfaces";
+import { Headset, IdCard, ImageIcon } from "lucide-react";
+import { Flags } from "../flags/Flags";
+import { useTranslations } from "next-intl";
 
 interface Props {
-  menuItems: MenuItem[];
+  locale: string;
 }
 
-export const Header = ({ menuItems }: Props) => {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrolled = window.scrollY > 0;
-      setIsScrolled(scrolled);
-    };
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
+export const Header = ({ locale }: Props) => {
+  const t = useTranslations("Menu");
+  const menuItems: MenuItem[] = [
+    {
+      icon: <IdCard />,
+      text: t("item-1"),
+      link: "/#About",
+    },
+    {
+      icon: <ImageIcon />,
+      text: t("item-2"),
+      link: "/#Portfolio",
+    },
+    {
+      icon: <Headset />,
+      text: t("item-3"),
+      link: "/#Contact",
+    },
+    {
+      icon: <Flags lang={locale} />,
+      text: t("item-4"),
+      link: `/${locale === "en" ? "es" : "en"}`,
+    },
+  ];
   return (
-    <header
-      className={clsx("header", {
-        "haeder-active": isScrolled,
-      })}
-    >
-      <HeaderPC menuItems={menuItems} />
-      <HeaderMobile />
-    </header>
+    <>
+      <HeaderMain menuItems={menuItems} />
+      <NavbarMobile menuItems={menuItems} />
+    </>
   );
 };

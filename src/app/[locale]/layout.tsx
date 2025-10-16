@@ -1,12 +1,10 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
-import { getTranslations } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { brandFont } from "@/config";
-import { Flags, Footer, Header, NavbarMobile } from "@/components";
-import { MenuItem } from "@/interfaces";
-import { Headset, IdCard, Image as ImageIcon } from "lucide-react";
+import { Footer, Header } from "@/components";
+import { ThemeProvider } from "@/components/providers";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -25,36 +23,15 @@ export default async function RootLayout({
   if (!hasLocale(routing.locales, locale)) {
     notFound();
   }
-  const t = await getTranslations("Menu");
-  const menuItems: MenuItem[] = [
-    {
-      icon: <IdCard />,
-      text: t("item-1"),
-      link: "/#About",
-    },
-    {
-      icon: <ImageIcon />,
-      text: t("item-2"),
-      link: "/#Portfolio",
-    },
-    {
-      icon: <Headset />,
-      text: t("item-3"),
-      link: "/#Contact",
-    },
-    {
-      icon: <Flags lang={locale} />,
-      text: t("item-4"),
-      link: `/${locale === "en" ? "es" : "en"}`,
-    },
-  ];
+
   return (
-    <html lang={locale}>
+    <html lang={locale} suppressHydrationWarning>
       <body className={`${brandFont.className} antialiased scroll-mt-0`} id="Home">
         <NextIntlClientProvider locale={locale}>
-          <Header menuItems={menuItems} />
-          <NavbarMobile menuItems={menuItems} />
-          {children}
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+            <Header locale={locale} />
+            {children}
+          </ThemeProvider>
         </NextIntlClientProvider>
         <Footer />
       </body>

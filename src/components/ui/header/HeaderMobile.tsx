@@ -1,19 +1,9 @@
-import Image from "next/image";
-import Link from "next/link";
+import { Logo } from "../logo/Logo";
 
 export const HeaderMobile = () => {
   return (
     <div className="header-mobile">
-      <Link href={"/#Home"}>
-        <Image
-          src="/img/Logo-white.svg"
-          alt="Logo Cristian David"
-          className="logo-brand"
-          width={200}
-          height={36}
-          priority
-        />
-      </Link>
+      <Logo />
     </div>
   );
 };

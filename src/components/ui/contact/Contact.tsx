@@ -74,7 +74,7 @@ export const Contact = () => {
                 type="checkbox"
                 className="accept-check before:content[''] peer before:-translate-x-2/4 before:rounded-full before:bg-blue-gray-500 before:opacity-0 before:transition-opacity hover:before:opacity-10"
               />
-              <div className="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-black opacity-0 transition-opacity peer-checked:opacity-100">
+              <div className="pointer-events-none absolute top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 text-background dark:text-foreground opacity-0 transition-opacity peer-checked:opacity-100">
                 <Check size={18} />
               </div>
             </label>

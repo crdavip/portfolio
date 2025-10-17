@@ -7,9 +7,9 @@ export const Slider = () => {
   return (
     <section className="max-w-6xl mx-auto h-fit grid grid-cols-1 sm:grid-cols-2 gap-15 mt-20 sm:mt-0 px-7">
       <div className="flex flex-col justify-center">
-        <h2 className="slide-text">{t("h2")}</h2>
+        <h2 className="slide-text font-light">{t("h2")}</h2>
         <h1 className="slide-text">{t("h1")}</h1>
-        <h3 className="slide-text">
+        <h3 className="slide-text font-light">
           {t("h3")}
           <span className="text-primary-color">{t("span")}</span>
         </h3>

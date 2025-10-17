@@ -8,7 +8,7 @@ import { ThemeProvider } from "@/components/providers";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Inicio | Cristian David",
+  title: "Cristian David",
   description: "Diseñador y Desarrollador",
 };
 

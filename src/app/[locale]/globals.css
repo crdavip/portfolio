@@ -240,6 +240,10 @@
     transition: var(--transition-all);
   }
 
+  .tool-item-svg {
+    @apply w-full h-auto;
+  }
+
   .tool-item:hover {
     transform: scale(1.25);
   }
@@ -381,53 +385,44 @@
   }
 
   .social-icon {
-    @apply p-1 rounded-md cursor-pointer;
-    background-color: transparent;
-    border: 0.5px solid transparent;
-    box-shadow: none;
+    @apply p-1 rounded-md cursor-pointer bg-transparent border border-transparent shadow-none;
     transition: var(--transition-all);
   }
 
   .social-icon:hover {
-    background-color: var(--color-light-05);
-    border: 0.5px solid var(--color-light-20);
-    box-shadow: var(--shadow-light-05);
+    @apply bg-foreground/5 dark:bg-background/5 border border-foreground/20 dark:border-background/20 shadow-lg/5 shadow-foreground dark:shadow-background;
   }
 
   .input-form {
-    @apply w-full py-3 pl-12 rounded-md;
-    background-color: transparent;
-    border: 0.5px solid var(--color-primary-20);
+    @apply w-full py-3 pl-12 rounded-md bg-transparent border border-primary/20 text-foreground dark:text-background;
     transition: var(--transition-all);
   }
 
   .input-form::placeholder {
-    color: var(--color-light);
+    color: var(--color-dark);
+  }
+
+  .dark {
+    .input-form::placeholder {
+      color: var(--color-light);
+    }
   }
 
   .input-form:focus {
-    outline: none;
-    background-color: var(--color-light-05);
-    border: 0.5px solid var(--color-light-20);
-    box-shadow: var(--shadow-light-05);
+    @apply outline-none bg-foreground/5 dark:bg-background/5 border border-foreground/20 dark:border-background/20 shadow-lg/5 shadow-foreground dark:shadow-background;
   }
 
   .check-form {
-    @apply w-full py-3 pl-3 rounded-md cursor-pointer;
-    background-color: transparent;
-    border: 0.5px solid var(--color-primary-20);
+    @apply w-full py-3 pl-3 rounded-md cursor-pointer bg-transparent border border-primary/20;
     transition: var(--transition-all);
   }
 
   .check-form:is(:where(.peer):checked ~ *) {
-    outline: none;
-    background-color: var(--color-light-05);
-    border: 0.5px solid var(--color-light-20);
-    box-shadow: var(--shadow-light-05);
+    @apply outline-none bg-foreground/5 dark:bg-background/5 border border-foreground/20 dark:border-background/20 shadow-lg/5 shadow-foreground dark:shadow-background;
   }
 
   .label-form {
-    @apply flex items-center relative;
+    @apply flex items-center relative text-foreground dark:text-background;
   }
 
   .label-message {
@@ -435,8 +430,7 @@
   }
 
   .accept-check {
-    @apply relative h-5 w-5 cursor-pointer appearance-none rounded-md before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4;
-    border: 0.5px solid var(--color-primary-20);
+    @apply relative h-5 w-5 cursor-pointer appearance-none rounded-md before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 border border-primary/60 dark:border-primary/20;
     transition: var(--transition-all);
   }
 

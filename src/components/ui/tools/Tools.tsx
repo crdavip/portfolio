@@ -1,13 +1,16 @@
-import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { toolItems } from "@/data";
 import { ToolItem } from "@/interfaces";
+import { getSVGComponent } from "@/helpers";
 
 export const Tools = () => {
   const tools: ToolItem[] = toolItems;
   const t = useTranslations("Tools");
   return (
-    <section className="max-w-6xl mx-auto h-fit flex flex-col justify-center items-center mt-25 sm:mt-50 px-12 sm:px-7 scroll-mt-50"  id="About">
+    <section
+      className="max-w-6xl mx-auto h-fit flex flex-col justify-center items-center mt-25 sm:mt-50 px-12 sm:px-7 scroll-mt-50"
+      id="About"
+    >
       <h3 className="text-center">{t("h3")}</h3>
       <div className="mt-15 grid grid-cols-4 sm:grid-cols-8 gap-x-20 gap-y-10 justify-items-center">
         {tools.map((tool) => (
@@ -20,7 +23,7 @@ export const Tools = () => {
                 </svg>
               </div>
             </div>
-            <Image src={tool.src} alt={tool.name} width={77} height={77} priority />
+            {getSVGComponent(tool.name)}
           </div>
         ))}
       </div>

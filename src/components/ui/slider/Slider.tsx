@@ -1,6 +1,6 @@
 import Link from "next/link";
-import Image from "next/image";
 import { useTranslations } from "next-intl";
+import { SliderImage } from "./SliderImage";
 
 export const Slider = () => {
   const t = useTranslations("Slider");
@@ -23,7 +23,7 @@ export const Slider = () => {
         </div>
       </div>
       <div className="flex flex-col items-end">
-        <Image src="/img/slide-img.png" alt="Slide Image" width={508} height={453} priority />
+        <SliderImage />
       </div>
     </section>
   );

@@ -56,15 +56,12 @@
 }
 
 body {
-  background-color: var(--background);
-  background-image: url("/img/bg-pattern.svg");
+  @apply bg-background dark:bg-foreground bg-[url('/img/bg-pattern-white.svg')] dark:bg-[url('/img/bg-pattern-black.svg')] bg-repeat-y text-foreground dark:text-background;
   background-position: center top;
-  background-repeat: repeat-y;
-  color: var(--foreground);
 }
 
 button {
-  cursor: pointer;
+  @apply cursor-pointer;
 }
 
 .text-primary-color {
@@ -145,6 +142,7 @@ button {
   }
 
   .logo-brand {
+    @apply fill-foreground dark:fill-background;
     cursor: pointer;
     transition: var(--transition-all);
   }
@@ -214,6 +212,11 @@ button {
 
   .slide-text {
     @apply text-center md:text-left;
+  }
+
+  .slide-img {
+    -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 99%);
+    mask-image: linear-gradient(to bottom, black 60%, transparent 99%);
   }
 
   .tool-item {
@@ -444,7 +447,6 @@ button {
 
 @media all and (max-width: 640px) {
   body {
-    background-image: url("/img/bg-pattern-mobile.svg");
-    padding-bottom: 80px;
+    @apply bg-[url('/img/bg-pattern-white-mobile.svg')] dark:bg-[url('/img/bg-pattern-black-mobile.svg')] pb-20;
   }
 }

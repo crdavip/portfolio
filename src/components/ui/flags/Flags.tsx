@@ -7,9 +7,9 @@ interface Props {
 export const Flags = ({ lang }: Props) => {
   let src = "";
   if (lang === "es") {
-    src = "/img/flag-usa.svg";
+    src = "/img/us.svg";
   } else {
-    src = "/img/flag-col.svg";
+    src = "/img/co.svg";
   }
 
   return <Image src={src} alt={lang} width={20} height={20} priority />;

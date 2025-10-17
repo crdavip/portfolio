@@ -11,6 +11,7 @@ export * from "./ui/modal/Modal";
 export * from "./ui/portfolio/Portfolio";
 export * from "./ui/portfolio/PortfolioCard";
 export * from "./ui/slider/Slider";
+export * from "./ui/slider/SliderImage";
 export * from "./ui/stats/Stats";
 export * from "./ui/tags/Tags";
 export * from "./ui/theme/ThemeToggle";

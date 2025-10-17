@@ -3,7 +3,11 @@
     "item-1": "About",
     "item-2": "Portfolio",
     "item-3": "Contact",
-    "item-4": "ES"
+    "item-4": "Spanish"
+  },
+  "ThemeMode": {
+    "dark": "Dark",
+    "light": "Light"
   },
   "Slider": {
     "h2": "Hello, my name is",
@@ -34,8 +38,8 @@
     "h3": "Some Recent Projects",
     "development": "Development",
     "design": "Design",
-    "btn-primary": "Demo",
-    "btn-secondary": "Code"
+    "btn-primary": "Live Demo",
+    "btn-secondary": "View Code"
   },
   "Contact": {
     "h3-1": "Follow Me",

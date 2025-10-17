@@ -37,16 +37,16 @@ export const Stats = () => {
         </div>
       </div>
       <div className="flex flex-col">
-        <div className="flex flex-col">
-          <div className="flex flex-col relative items-center justify-center sm:items-start gap-15">
-            <div className="flex items-center gap-5 sm:gap-10">
-              <div className="w-[16px] h-[80px] border-l border-l-primary-color" />
+        <div className="flex flex-col items-start">
+          <div className="flex flex-col relative justify-center sm:items-start gap-15">
+            <div className="flex items-center gap-5 sm:gap-10 w-full">
+              <div className="w-[16px] h-[80px] border-l border-l-primary/60 dark:border-l-primary/20" />
               <CodeXml size={40} strokeWidth={1} />
               <h4>{t("h4-1")}</h4>
             </div>
-            <div className="w-[16px] h-[16px] border border-primary-color rounded-4xl absolute -translate-x-38.5 sm:-translate-x-1.5" />
-            <div className="flex items-center gap-5 sm:gap-10">
-              <div className="w-[16px] h-[80px] border-l border-l-primary-color" />
+            <div className="w-[16px] h-[16px] border border-primary/60 dark:border-primary/20 rounded-4xl absolute -left-2" />
+            <div className="flex items-center gap-5 sm:gap-10 w-full">
+              <div className="w-[16px] h-[80px] border-l-primary/60 border-l dark:border-l-primary/20" />
               <Brush size={40} strokeWidth={1} />
               <h4>{t("h4-2")}</h4>
             </div>

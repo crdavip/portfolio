@@ -9,7 +9,7 @@ interface Props {
 export const NavbarMobile = ({ menuItems }: Props) => {
   return (
     <nav className="nav-mobile">
-      <ul className="flex items-center gap-7">
+      <ul className="flex items-center gap-6">
         {menuItems.map((item) => (
           <Link key={item.text} href={item.link}>
             <li className="nav-mobile-item">

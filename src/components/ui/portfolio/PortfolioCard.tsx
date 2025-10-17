@@ -4,7 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import clsx from "clsx";
-import { Brush, Code, CodeXml, View } from "lucide-react";
+import { Brush, CodeXml, Github, SquareArrowOutUpRight } from "lucide-react";
 import { PorfolioItem } from "@/interfaces";
 import { ToolsUsed } from "../tools/ToolsUsed";
 import { Modal } from "../modal/Modal";
@@ -47,13 +47,13 @@ export const PortfolioCard = ({ portfolio }: Props) => {
             <div className="flex gap-5 justify-center sm:justify-start my-3">
               <Link href={portfolio.demo} target="_blank">
                 <button className="btn-primary">
-                  <View />
+                  <SquareArrowOutUpRight size={18} />
                   {t("btn-primary")}
                 </button>
               </Link>
               <Link href={portfolio.code} target="_blank">
                 <button className="btn-secondary">
-                  <Code />
+                  <Github size={18} />
                   {t("btn-secondary")}
                 </button>
               </Link>

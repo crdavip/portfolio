@@ -3,7 +3,11 @@
     "item-1": "Resumen",
     "item-2": "Portafolio",
     "item-3": "Contacto",
-    "item-4": "EN"
+    "item-4": "Inglés"
+  },
+  "ThemeMode": {
+    "dark": "Oscuro",
+    "light": "Claro"
   },
   "Slider": {
     "h2": "Hola, mi nombre es",
@@ -34,8 +38,8 @@
     "h3": "Algunos proyectos recientes",
     "development": "Desarrollo",
     "design": "Diseño",
-    "btn-primary": "Demo",
-    "btn-secondary": "Código"
+    "btn-primary": "En Vivo",
+    "btn-secondary": "Ver Código"
   },
   "Contact": {
     "h3-1": "Sígueme",

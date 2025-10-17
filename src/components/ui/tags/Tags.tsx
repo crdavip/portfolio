@@ -9,7 +9,7 @@ interface Props {
 export const Tags = ({ tags, category, className }: Props) => {
   const t = useTranslations("Portfolio");
   return (
-    <div className={`flex gap-4 ${className}`}>
+    <div className={`flex gap-2 sm:gap-4 ${className}`}>
       {category && <div className="tag-box capitalize">{t(category)}</div>}
       {tags.map((tag) => (
         <div key={tag} className="tag-box">

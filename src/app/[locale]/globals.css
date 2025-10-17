@@ -36,32 +36,48 @@
   scroll-behavior: smooth;
 }
 
-*::-webkit-scrollbar {
-  width: 0.15em;
-}
+@layer base {
+  *::-webkit-scrollbar {
+    width: 0.15em;
+  }
 
-*::-webkit-scrollbar-track {
-  background: var(--color-dark);
-}
+  *::-webkit-scrollbar-track {
+    background: var(--color-light);
+  }
 
-*::-webkit-scrollbar-thumb {
-  background: var(--color-light-20);
-  border-radius: 20px;
-  border: none;
-}
+  *::-webkit-scrollbar-thumb {
+    background: color-mix(in oklab, var(--color-dark) 20%, transparent);
+    border-radius: 20px;
+    border: none;
+  }
 
-*::selection {
-  background: var(--secondary);
-  color: var(--white);
-}
+  *::selection {
+    background: color-mix(in oklab, var(--color-secondary) 20%, transparent);
+    color: var(--color-dark);
+  }
 
-body {
-  @apply bg-background dark:bg-foreground bg-[url('/img/bg-pattern-white.svg')] dark:bg-[url('/img/bg-pattern-black.svg')] bg-repeat-y text-foreground dark:text-background;
-  background-position: center top;
-}
+  .dark {
+    *::-webkit-scrollbar-track {
+      background: var(--color-dark);
+    }
 
-button {
-  @apply cursor-pointer;
+    *::-webkit-scrollbar-thumb {
+      background: color-mix(in oklab, var(--color-light) 20%, transparent);
+    }
+
+    *::selection {
+      color: var(--color-light);
+    }
+  }
+
+  body {
+    @apply bg-background dark:bg-foreground bg-[url('/img/bg-pattern-white.svg')] dark:bg-[url('/img/bg-pattern-black.svg')] bg-repeat-y text-foreground dark:text-background;
+    background-position: center top;
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
 }
 
 .text-primary-color {
@@ -167,7 +183,7 @@ button {
   }
 
   .nav-mobile {
-    @apply flex w-full h-[80px] justify-center items-center backdrop-blur-sm bg-background/75 dark:bg-foreground/75 border-t border-t-foreground/10 dark:border-t-background/10 sm:hidden z-50;
+    @apply flex w-full h-fit py-2.5 justify-center items-center backdrop-blur-sm bg-background/75 dark:bg-foreground/75 border-t border-t-foreground/10 dark:border-t-background/10 sm:hidden z-50;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -247,22 +263,17 @@ button {
   }
 
   .stats {
-    @apply flex flex-col justify-center items-center gap-1 py-5 rounded-md;
-    background-color: transparent;
-    border: 0.5px solid var(--color-primary-20);
+    @apply flex flex-col justify-center items-center gap-1 py-5 rounded-md bg-transparent border border-primary/60 dark:border-primary/20;
     transition: var(--transition-all);
   }
 
   .stats:hover {
-    background-color: var(--color-light-05);
-    border: 0.5px solid var(--color-light-20);
-    box-shadow: var(--shadow-light-05);
+    @apply bg-foreground/5 dark:bg-background/5 border border-foreground/20 dark:border-background/20 shadow-lg shadow-foreground/5 dark:shadow-background/5;
+    /* box-shadow: var(--shadow-light-05); */
   }
 
   .portfolio-item {
-    @apply w-full h-[250px] sm:min-h-[350px] rounded-lg overflow-hidden relative cursor-pointer;
-    border: 1px solid var(--color-light-20);
-    box-shadow: var(--shadow-light-05);
+    @apply w-full h-[250px] sm:min-h-[350px] rounded-lg overflow-hidden relative cursor-pointer text-foreground dark:text-background border border-foreground/20 dark:border-background/20 shadow-lg shadow-foreground/10 dark:shadow-background/10;
     transition: var(--transition-all);
   }
 
@@ -278,12 +289,22 @@ button {
 
   .portfolio-item-bg {
     @apply w-full h-full absolute;
-    background: linear-gradient(180deg, rgba(var(--color-dark-rgb), 0) 25%, rgba(var(--color-dark-rgb), 0.75) 100%);
+    background: linear-gradient(180deg, rgba(var(--color-light-rgb), 0) 25%, rgba(var(--color-light-rgb), 0.75) 100%);
   }
 
   .portfolio-item-bg-hover {
     @apply w-full h-full absolute;
-    background: linear-gradient(180deg, rgba(var(--color-dark-rgb), 0) 0%, rgba(var(--color-dark-rgb), 1) 90%);
+    background: linear-gradient(180deg, rgba(var(--color-light-rgb), 0) 0%, rgba(var(--color-light-rgb), 1) 90%);
+  }
+
+  .dark {
+    .portfolio-item-bg {
+      background: linear-gradient(180deg, rgba(var(--color-dark-rgb), 0) 25%, rgba(var(--color-dark-rgb), 0.75) 100%);
+    }
+
+    .portfolio-item-bg-hover {
+      background: linear-gradient(180deg, rgba(var(--color-dark-rgb), 0) 0%, rgba(var(--color-dark-rgb), 1) 90%);
+    }
   }
 
   .portfolio-item-blur {
@@ -316,22 +337,19 @@ button {
   }
 
   .badget-dev {
+    @apply border border-foreground/20 dark:border-background/20;
     background-color: var(--color-primary-75);
-    border: 0.5px solid var(--color-light-20);
     box-shadow: var(--shadow-badget-dev);
   }
 
   .badget-des {
+    @apply border border-foreground/20 dark:border-background/20;
     background-color: var(--color-secondary-75);
-    border: 0.5px solid var(--color-light-20);
     box-shadow: var(--shadow-badget-des);
   }
 
   .tag-box {
-    @apply py-1 px-3 flex items-center gap-2 font-light rounded-md;
-    background-color: var(--color-light-05);
-    border: 0.5px solid var(--color-light-20);
-    box-shadow: var(--shadow-light-05);
+    @apply py-1 px-3 flex items-center gap-2 font-light rounded-md bg-foreground/5 dark:bg-background/5 border border-foreground/20 dark:border-background/20 shadow-lg shadow-foreground/5 dark:shadow-background/5;
     font-size: 12px;
   }
 
@@ -340,14 +358,11 @@ button {
   }
 
   .modal-bg-active {
-    @apply visible;
-    background-color: var(--color-dark-75);
+    @apply visible bg-background/75 dark:bg-foreground/75;
   }
 
   .modal {
-    @apply w-full h-[680px] sm:h-[800px] sm:w-5xl rounded-md shadow p-6 scale-125 opacity-0 transition-all;
-    background-color: var(--color-dark);
-    box-shadow: var(--shadow-light-05);
+    @apply w-full h-[680px] sm:h-[800px] sm:w-5xl rounded-md bg-background dark:bg-foreground shadow-lg shadow-foreground/5 dark:shadow-background/5 p-6 scale-125 opacity-0 transition-all;
     overflow: hidden;
     overflow-y: auto;
   }
@@ -357,17 +372,12 @@ button {
   }
 
   .modal-close {
-    @apply absolute top-2 right-2 rounded-md;
-    background-color: transparent;
-    border: 0.5px solid transparent;
-    box-shadow: none;
+    @apply absolute top-2 right-2 rounded-md bg-transparent border border-transparent shadow-none;
     transition: var(--transition-all);
   }
 
   .modal-close:hover {
-    background-color: var(--color-light-05);
-    border: 0.5px solid var(--color-light-20);
-    box-shadow: var(--shadow-light-05);
+    @apply bg-foreground/5 dark:bg-background/5 border border-foreground/20 dark:border-background/20 shadow-lg shadow-foreground/5 dark:shadow-background/5;
   }
 
   .social-icon {

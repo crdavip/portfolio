@@ -5,6 +5,7 @@ export * from "./ui/header/Header";
 export * from "./ui/header/HeaderMain";
 export * from "./ui/header/HeaderMobile";
 export * from "./ui/header/HeaderPC";
+export * from "./ui/header/MenuItemsList";
 export * from "./ui/header/NavbarMobile";
 export * from "./ui/logo/Logo";
 export * from "./ui/modal/Modal";

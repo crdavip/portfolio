@@ -75,6 +75,19 @@
     background-position: center top;
   }
 
+  body::before {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    content: "";
+    z-index: 1000;
+    pointer-events: none;
+    background: url("https://res.cloudinary.com/dym3bnvpy/image/upload/v1760772976/noise_zputzk.gif");
+    opacity: 0.05;
+  }
+
   button {
     @apply cursor-pointer;
   }

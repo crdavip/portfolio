@@ -32,7 +32,8 @@ export const Header = ({ locale }: Props) => {
     {
       icon: <Flags lang={locale} />,
       text: t("item-4"),
-      link: `/${locale === "en" ? "es" : "en"}`,
+      link: ``,
+      isLanguageSwitch: true,
     },
   ];
   return (

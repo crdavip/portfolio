@@ -1,7 +1,9 @@
-import Link from "next/link";
+"use client";
+
 import { MenuItem } from "@/interfaces";
 import { ThemeToggle } from "../theme/ThemeToggle";
 import { Logo } from "../logo/Logo";
+import { MenuItemsList } from "./MenuItemsList";
 
 interface Props {
   menuItems: MenuItem[];
@@ -13,14 +15,7 @@ export const HeaderPC = ({ menuItems }: Props) => {
       <Logo />
       <nav>
         <ul className="flex lg:gap-2 xl:gap-5">
-          {menuItems.map((item) => (
-            <Link key={item.text} href={item.link}>
-              <li className="menu-item">
-                {item.icon}
-                {item.text}
-              </li>
-            </Link>
-          ))}
+          <MenuItemsList menuItems={menuItems} className="menu-item" />
           <ThemeToggle className="menu-item" />
         </ul>
       </nav>

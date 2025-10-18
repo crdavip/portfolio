@@ -8,7 +8,7 @@ export const Tools = () => {
   const t = useTranslations("Tools");
   return (
     <section
-      className="max-w-6xl mx-auto h-fit flex flex-col justify-center items-center mt-25 sm:mt-50 px-12 sm:px-7 scroll-mt-50"
+      className="max-w-6xl mx-auto h-fit flex flex-col justify-center items-center mt-25 sm:mt-50 px-8 sm:px-16 lg:px-12 xl:px-0 scroll-mt-50"
       id="About"
     >
       <h3 className="text-center">{t("h3")}</h3>

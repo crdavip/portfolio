@@ -5,7 +5,7 @@ import { SliderImage } from "./SliderImage";
 export const Slider = () => {
   const t = useTranslations("Slider");
   return (
-    <section className="max-w-6xl mx-auto h-fit grid grid-cols-1 sm:grid-cols-2 gap-15 mt-20 sm:mt-0 px-7">
+    <section className="max-w-6xl mx-auto h-fit grid grid-cols-1 sm:grid-cols-2 gap-15 sm:gap-0 lg:gap-15 mt-20 sm:mt-0 px-4 sm:px-8 xl:px-0">
       <div className="flex flex-col justify-center">
         <h2 className="slide-text font-light">{t("h2")}</h2>
         <h1 className="slide-text">{t("h1")}</h1>

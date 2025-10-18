@@ -12,7 +12,7 @@ export const HeaderPC = ({ menuItems }: Props) => {
     <div className="header-pc">
       <Logo />
       <nav>
-        <ul className="flex gap-5">
+        <ul className="flex lg:gap-2 xl:gap-5">
           {menuItems.map((item) => (
             <Link key={item.text} href={item.link}>
               <li className="menu-item">

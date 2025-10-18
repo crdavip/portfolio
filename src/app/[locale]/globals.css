@@ -71,7 +71,7 @@
   }
 
   body {
-    @apply bg-background dark:bg-foreground bg-[url('/img/bg-pattern-white.svg')] dark:bg-[url('/img/bg-pattern-black.svg')] bg-repeat-y text-foreground dark:text-background;
+    @apply bg-background dark:bg-foreground bg-[url('/img/bg-pattern-white.svg')] dark:bg-[url('/img/bg-pattern-black.svg')] bg-fixed bg-no-repeat text-foreground dark:text-background;
     background-position: center top;
   }
 
@@ -118,19 +118,19 @@
 
 @layer components {
   h1 {
-    @apply text-4xl md:text-6xl font-bold;
+    @apply text-4xl lg:text-6xl font-bold;
   }
 
   h2 {
-    @apply text-2xl md:text-4xl font-semibold;
+    @apply text-2xl lg:text-4xl font-semibold;
   }
 
   h3 {
-    @apply text-xl md:text-3xl font-semibold;
+    @apply text-xl lg:text-3xl font-semibold;
   }
 
   h4 {
-    @apply text-lg md:text-2xl font-semibold;
+    @apply text-lg lg:text-2xl font-semibold;
   }
 
   .text-button {
@@ -139,8 +139,7 @@
   }
 
   .header {
-    @apply w-full h-[80px] sticky top-0 px-0 sm:px-7 z-50;
-    border-bottom: 0.5px solid transparent;
+    @apply w-full h-[80px] sticky top-0 px-4 sm:px-8 xl:px-0 z-50 border-b border-transparent;
     transition: var(--transition-all);
   }
 
@@ -150,11 +149,11 @@
   }
 
   .header-pc {
-    @apply max-w-6xl mx-auto h-full hidden md:flex justify-between items-center px-0;
+    @apply w-full sm:max-w-6xl mx-auto h-full hidden lg:flex justify-between items-center px-0;
   }
 
   .header-mobile {
-    @apply max-w-6xl mx-auto h-full flex md:hidden justify-center items-center px-0;
+    @apply max-w-6xl mx-auto h-full flex lg:hidden justify-center items-center px-0;
   }
 
   .logo-brand {
@@ -183,7 +182,7 @@
   }
 
   .nav-mobile {
-    @apply flex w-full h-fit py-2.5 justify-center items-center backdrop-blur-sm bg-background/75 dark:bg-foreground/75 border-t border-t-foreground/10 dark:border-t-background/10 sm:hidden z-50;
+    @apply flex w-full h-fit py-2.5 justify-center items-center backdrop-blur-sm bg-background/75 dark:bg-foreground/75 border-t border-t-foreground/10 dark:border-t-background/10 lg:hidden z-50;
     position: fixed;
     bottom: 0;
     left: 0;
@@ -366,7 +365,7 @@
   }
 
   .modal {
-    @apply w-full h-[680px] sm:h-[800px] sm:w-5xl rounded-md bg-background dark:bg-foreground shadow-lg shadow-foreground/5 dark:shadow-background/5 p-6 scale-125 opacity-0 transition-all;
+    @apply w-full sm:w-[90%] h-[700px] sm:h-[800px] lg:h-[1100px] xl:h-[800px] lg:w-4xl xl:w-5xl rounded-md bg-background dark:bg-foreground shadow-lg shadow-foreground/5 dark:shadow-background/5 p-6 scale-125 opacity-0 transition-all;
     overflow: hidden;
     overflow-y: auto;
   }

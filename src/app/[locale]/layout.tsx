@@ -28,7 +28,7 @@ export default async function RootLayout({
     <html lang={locale} suppressHydrationWarning>
       <body className={`${brandFont.className} antialiased scroll-mt-0`} id="Home">
         <NextIntlClientProvider locale={locale}>
-          <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
             <Header locale={locale} />
             {children}
           </ThemeProvider>

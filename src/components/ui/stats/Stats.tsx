@@ -19,7 +19,7 @@ export const Stats = () => {
   const CVLink = locale === "es" ? "/cv_es.pdf" : "/cv_en.pdf";
 
   return (
-    <section className="max-w-6xl mx-auto h-fit grid grid-cols-1 sm:grid-cols-2 gap-15 mt-25 sm:mt-50 px-7">
+    <section className="max-w-6xl mx-auto h-fit grid grid-cols-1 sm:grid-cols-2 gap-15 mt-25 sm:mt-50 px-4 sm:px-8 xl:px-0">
       <div className="flex flex-col">
         <h3 className="mb-6 text-center md:text-left">{t("h3")}</h3>
         <p className="mb-3 text-center md:text-left">
@@ -52,7 +52,7 @@ export const Stats = () => {
             </div>
           </div>
         </div>
-        <div className="grid grid-cols-2 sm:grid-cols-4 mt-12 gap-4">
+        <div className="grid grid-cols-2 lg:grid-cols-4 mt-12 gap-4">
           {statsItems.map((item) => (
             <div key={item.title} className="stats">
               <p>{t(item.title)}</p>

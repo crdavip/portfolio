@@ -11,7 +11,7 @@ export const useLanguageSwitch = () => {
   const handleLanguageChange = (newLocale: string) => {
     startTransition(() => {
       const newPathname = pathname.replace(`/${locale}`, `/${newLocale}`);
-      router.replace(newPathname, { scroll: false });
+      router.replace(newPathname);
     });
   };
 

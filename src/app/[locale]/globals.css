@@ -30,6 +30,7 @@
   --color-background: var(--color-light);
   --color-foreground: var(--color-dark);
   --color-primary: var(--color-primary);
+  --color-secondary: var(--color-secondary);
 }
 
 * {
@@ -195,7 +196,7 @@
   }
 
   .nav-mobile {
-    @apply flex w-full h-fit py-2.5 justify-center items-center backdrop-blur-sm bg-background/75 dark:bg-foreground/75 border-t border-t-foreground/10 dark:border-t-background/10 lg:hidden z-50;
+    @apply flex w-full h-fit py-2.5 justify-center items-center backdrop-blur-sm bg-background/75 dark:bg-foreground/75 border-t border-t-foreground/10 dark:border-t-background/10 z-50;
     position: fixed;
     bottom: 0;
     left: 0;

@@ -16,12 +16,12 @@ export const MenuItemsList = ({ menuItems, className = "menu-item" }: Props) => 
     <>
       {menuItems.map((item) =>
         item.isLanguageSwitch ? (
-          <button key={item.text} className={className} onClick={toggleLanguage}>
+          <button key={item.text} className={className} onClick={toggleLanguage} aria-label={item.text}>
             {item.icon}
             {item.text}
           </button>
         ) : (
-          <Link key={item.text} href={item.link}>
+          <Link key={item.text} href={item.link} aria-label={item.text}>
             <li className={className}>
               {item.icon}
               {item.text}

@@ -1,35 +1,25 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useMemo } from "react";
 import clsx from "clsx";
 import { MenuItem } from "@/interfaces";
 import { HeaderMobile, HeaderPC } from "@/components";
+import { useScrollViewport } from "@/hooks";
 
 interface Props {
   menuItems: MenuItem[];
 }
 
 export const HeaderMain = ({ menuItems }: Props) => {
-  const [isScrolled, setIsScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrolled = window.scrollY > 0;
-      setIsScrolled(scrolled);
-    };
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+  const threshold = useMemo(() => {
+    if (typeof window === "undefined") return 0;
+    return window.innerHeight * 1.1;
   }, []);
 
+  const { isScrolledPast } = useScrollViewport({ threshold });
+
   return (
-    <header
-      className={clsx("header", {
-        "header-active": isScrolled,
-      })}
-    >
+    <header className={clsx("header", { "header-active": isScrolledPast })}>
       <HeaderPC menuItems={menuItems} />
       <HeaderMobile />
     </header>

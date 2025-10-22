@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useCallback, useEffect, useRef } from "react";
 import { useTranslations } from "next-intl";
 import { ChevronDown } from "lucide-react";
 import { HeroLogo } from "./HeroLogo";
@@ -10,46 +10,47 @@ import "./hero.css";
 export const HeroAnimated = () => {
   const t = useTranslations("HeroAnimated");
   const { isScrolledPast, height } = useScrollViewport();
-  const hasAutoScrolled = useRef(false);
-  const hasManualScroll = useRef(false);
+  
+  const autoScrollTriggered = useRef(false);
+  const userScrolled = useRef(false);
 
-  const scrollToHeader = () => {
+  const scrollToHeader = useCallback(() => {
     const viewportHeight = window.visualViewport?.height ?? window.innerHeight;
-    window.scrollTo({ top: viewportHeight });
-  };
+    window.scrollTo({ top: viewportHeight, behavior: "smooth" });
+  }, []);
 
-  const scrollToHero = () => {
-    window.scrollTo({ top: 0 });
-  };
+  const scrollToHero = useCallback(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
 
   useEffect(() => {
-    const handleManualScroll = () => {
+    const handleUserScroll = () => {
       const scrollY = window.scrollY;
-
-      if (scrollY > 0 && !hasAutoScrolled.current && !hasManualScroll.current) {
-        hasManualScroll.current = true;
-        scrollToHeader();
-      }
-
-      if (scrollY <= 0) {
-        hasManualScroll.current = false;
-        hasAutoScrolled.current = false;
+      
+      if (scrollY > 0 && scrollY < height * 0.5) {
+        if (!autoScrollTriggered.current && !userScrolled.current) {
+          userScrolled.current = true;
+          scrollToHeader();
+        }
+      } else if (scrollY === 0) {
+        userScrolled.current = false;
+        autoScrollTriggered.current = false;
       }
     };
 
-    window.addEventListener("scroll", handleManualScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleManualScroll);
-  }, [height]);
+    window.addEventListener("scroll", handleUserScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleUserScroll);
+  }, [height, scrollToHeader]);
 
-  useEffect(() => {
-    if (isScrolledPast && !hasAutoScrolled.current) {
-      hasAutoScrolled.current = true;
+ useEffect(() => {
+    if (isScrolledPast && !autoScrollTriggered.current) {
+      autoScrollTriggered.current = true;
       scrollToHeader();
-    } else if (!isScrolledPast && hasAutoScrolled.current) {
-      hasAutoScrolled.current = false;
+    } else if (!isScrolledPast && autoScrollTriggered.current) {
+      autoScrollTriggered.current = false;
       scrollToHero();
     }
-  }, [isScrolledPast, height]);
+  }, [isScrolledPast, scrollToHeader, scrollToHero]);
 
   return (
     <div className="hero-background">

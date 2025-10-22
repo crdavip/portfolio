@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo } from "react";
+import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { MenuItem } from "@/interfaces";
 import { HeaderMobile, HeaderPC } from "@/components";
@@ -11,11 +11,12 @@ interface Props {
 }
 
 export const HeaderMain = ({ menuItems }: Props) => {
-  const threshold = useMemo(() => {
-    if (typeof window === "undefined") return 0;
-    return window.innerHeight * 1.1;
+  const [threshold, setThreshold] = useState(0);
+  
+  useEffect(() => {
+    setThreshold(window.innerHeight * 1.1);
   }, []);
-
+  
   const { isScrolledPast } = useScrollViewport({ threshold });
 
   return (

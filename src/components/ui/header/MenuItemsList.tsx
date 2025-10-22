@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { MenuItem } from "@/interfaces";
-import { useLanguageSwitch } from "@/hooks/useLanguageSwitch";
 
 interface Props {
   menuItems: MenuItem[];
@@ -10,17 +9,10 @@ interface Props {
 }
 
 export const MenuItemsList = ({ menuItems, className = "menu-item" }: Props) => {
-  const { toggleLanguage } = useLanguageSwitch();
 
   return (
     <>
-      {menuItems.map((item) =>
-        item.isLanguageSwitch ? (
-          <button key={item.text} className={className} onClick={toggleLanguage} aria-label={item.text}>
-            {item.icon}
-            {item.text}
-          </button>
-        ) : (
+      {menuItems.map((item) =>(
           <Link key={item.text} href={item.link} aria-label={item.text}>
             <li className={className}>
               {item.icon}

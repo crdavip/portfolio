@@ -1,20 +1,90 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 
-interface UseScrollPastViewportOptions {
+interface UseScrollViewportOptions {
   threshold?: number;
 }
 
-export function useScrollViewport(options: UseScrollPastViewportOptions = {}) {
-  const [isScrolledPast, setIsScrolledPast] = useState(false);
-  const [isScrolledBefore, setIsScrolledBefore] = useState(true);
+interface ScrollViewportReturn {
+  isScrolledPast: boolean;
+  isScrolledBefore: boolean;
+  height: number;
+  width: number;
+}
+
+class ScrollManager {
+  private listeners = new Set<(scrollY: number) => void>();
+  private scrollY = 0;
+  private rafId: number | null = null;
+  private isListening = false;
+
+  subscribe(callback: (scrollY: number) => void) {
+    this.listeners.add(callback);
+    
+    if (!this.isListening) {
+      this.startListening();
+    }
+    
+    callback(this.scrollY);
+    
+    return () => {
+      this.listeners.delete(callback);
+      if (this.listeners.size === 0) {
+        this.stopListening();
+      }
+    };
+  }
+
+  private startListening() {
+    this.isListening = true;
+    this.scrollY = window.scrollY;
+    
+    const handleScroll = () => {
+      if (this.rafId !== null) return;
+      
+      this.rafId = requestAnimationFrame(() => {
+        this.scrollY = window.scrollY;
+        this.listeners.forEach(callback => callback(this.scrollY));
+        this.rafId = null;
+      });
+    };
+    
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    this.cleanup = () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (this.rafId !== null) {
+        cancelAnimationFrame(this.rafId);
+        this.rafId = null;
+      }
+    };
+  }
+
+  private stopListening() {
+    this.isListening = false;
+    this.cleanup?.();
+  }
+
+  private cleanup?: () => void;
+}
+
+const scrollManager = typeof window !== "undefined" ? new ScrollManager() : null;
+
+export function useScrollViewport(options: UseScrollViewportOptions = {}): ScrollViewportReturn {
   const [viewport, setViewport] = useState({
-    height: typeof window !== "undefined" ? window.innerHeight : 0,
-    width: typeof window !== "undefined" ? window.innerWidth : 0,
+    height: 0,
+    width: 0,
   });
 
-  const thresholdRef = useRef<number>(options.threshold ?? viewport.height);
+  const [scrollState, setScrollState] = useState({
+    isScrolledPast: false,
+    isScrolledBefore: true,
+  });
 
   useEffect(() => {
+    setViewport({
+      height: window.innerHeight,
+      width: window.innerWidth,
+    });
+
     const updateViewport = () => {
       setViewport({
         height: window.innerHeight,
@@ -23,25 +93,27 @@ export function useScrollViewport(options: UseScrollPastViewportOptions = {}) {
     };
 
     window.addEventListener("resize", updateViewport);
-    updateViewport();
-
     return () => window.removeEventListener("resize", updateViewport);
   }, []);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const threshold = options.threshold ?? thresholdRef.current;
-      setIsScrolledPast(scrollY >= threshold);
-      setIsScrolledBefore(scrollY <= threshold);
-    };
+    if (!scrollManager) return;
 
-    const onScroll = () => requestAnimationFrame(handleScroll);
-    window.addEventListener("scroll", onScroll);
-    handleScroll();
+    const threshold = options.threshold ?? viewport.height;
+    
+    const unsubscribe = scrollManager.subscribe((scrollY) => {
+      setScrollState({
+        isScrolledPast: scrollY >= threshold,
+        isScrolledBefore: scrollY <= threshold,
+      });
+    });
 
-    return () => window.removeEventListener("scroll", onScroll);
-  }, [options.threshold]);
+    return unsubscribe;
+  }, [options.threshold, viewport.height]);
 
-  return { isScrolledPast, isScrolledBefore, ...viewport };
+  return {
+    ...scrollState,
+    height: viewport.height,
+    width: viewport.width,
+  };
 }

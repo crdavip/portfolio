@@ -1,20 +1,21 @@
 "use client";
 
-import { useMemo } from "react";
 import clsx from "clsx";
 import { MenuItem } from "@/interfaces";
 import { ThemeToggle } from "../theme/ThemeToggle";
 import { MenuItemsList } from "./MenuItemsList";
 import { useScrollViewport } from "@/hooks";
+import { useEffect, useState } from "react";
 
 interface Props {
   menuItems: MenuItem[];
 }
 
 export const NavbarMobile = ({ menuItems }: Props) => {
-  const threshold = useMemo(() => {
-    if (typeof window === "undefined") return 0;
-    return window.innerHeight * 0.9;
+  const [threshold, setThreshold] = useState(0);
+
+  useEffect(() => {
+    setThreshold(window.innerHeight * 0.9);
   }, []);
 
   const { isScrolledPast } = useScrollViewport({ threshold });

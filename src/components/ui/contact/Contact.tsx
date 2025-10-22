@@ -7,7 +7,7 @@ export const Contact = () => {
   return (
     <section
       className="max-w-6xl mx-auto h-fit grid grid-cols-1 lg:grid-cols-2 mt-25 sm:mt-50 gap-15 lg:gap-4 xl:gap-15 px-4 sm:px-8 xl:px-0"
-      id="Contact"
+      id="contact-section"
     >
       <div className="flex flex-col justify-start items-center lg:items-start">
         <h3>{t("h3-1")}</h3>

@@ -1,4 +1,5 @@
 export * from "./hero/HeroAnimated";
+export * from "./ui/button/ScrollToButton";
 export * from "./ui/contact/Contact";
 export * from "./ui/flags/Flags";
 export * from "./ui/footer/Footer";

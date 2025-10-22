@@ -3,6 +3,7 @@ import { Brush, CodeXml, Coffee, Images, Medal, Rocket } from "lucide-react";
 import { stats } from "@/data";
 import { StatsItem } from "@/interfaces";
 import { useTranslations, useLocale } from "next-intl";
+import { ScrollToButton } from "../button/ScrollToButton";
 
 export const Stats = () => {
   const statsIcons = {
@@ -28,9 +29,7 @@ export const Stats = () => {
         </p>
         <p className="text-center md:text-left">{t("p2")}</p>
         <div className="flex mt-10 gap-5 justify-center sm:justify-start">
-          <Link href={"/#Contact"}>
-            <button className="btn-primary">{t("btn-primary")}</button>
-          </Link>
+          <ScrollToButton text={t("btn-primary")} link="contact-section" className="btn-primary" />
           <Link href={CVLink} target="_blank">
             <button className="btn-secondary">{t("btn-secondary")}</button>
           </Link>

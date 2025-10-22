@@ -9,7 +9,7 @@ export const Tools = () => {
   return (
     <section
       className="max-w-6xl mx-auto h-fit flex flex-col justify-center items-center mt-25 sm:mt-50 px-8 sm:px-16 lg:px-12 xl:px-0 scroll-mt-50"
-      id="About"
+      id="about-section"
     >
       <h3 className="text-center">{t("h3")}</h3>
       <div className="mt-15 grid grid-cols-4 sm:grid-cols-8 gap-x-20 gap-y-10 justify-items-center">

@@ -32,16 +32,16 @@ export const toolItems = [
     name: "Prisma",
   },
   {
-    src: "/img/tools/node.svg",
-    name: "Node",
-  },
-  {
     src: "/img/tools/typescript.svg",
     name: "TypeScript",
   },
   {
-    src: "/img/tools/wordpress.svg",
-    name: "WordPress",
+    src: "/img/tools/php.svg",
+    name: "PHP",
+  },
+  {
+    src: "/img/tools/laravel.svg",
+    name: "Laravel",
   },
   {
     src: "/img/tools/figma.svg",

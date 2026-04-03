@@ -5,6 +5,7 @@ export { HTML } from "./HTML";
 export { IA } from "./IA";
 export { Illustrator } from "./Illustrator";
 export { JavaScript } from "./JavaScript";
+export { Laravel } from "./Laravel";
 export { MySQL } from "./MySQL";
 export { Next } from "./Next";
 export { Node } from "./Node";
